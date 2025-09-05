@@ -1,5 +1,6 @@
-import { EmbedBuilder, PermissionFlagsBits } from 'discord.js';
+import { EmbedBuilder } from 'discord.js';
 import { AchilleusBot, Command, CommandCategory, CaseType } from '../../types';
+import { logger } from '../../utils/logger';
 
 const command: Command = {
   name: 'warn',
@@ -86,7 +87,7 @@ const command: Command = {
       }
 
       // Create warning record
-      const warning = await bot.db.warning.create({
+      await bot.db.warning.create({
         data: {
           guildId,
           userId: user.id,
@@ -227,7 +228,7 @@ const command: Command = {
       }
 
     } catch (error) {
-      console.error('Warn command error:', error);
+      logger.error('Warn command error:', error);
       await interaction.editReply({
         content: '❌ An error occurred while issuing the warning.',
       });

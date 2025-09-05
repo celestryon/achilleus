@@ -45,7 +45,7 @@ services:
     volumes:
       - ./.env:/app/.env:ro
     restart: unless-stopped
-    command: sh -c "pnpm db:deploy && pnpm start"
+    command: sh -c "npm run db:deploy && npm start"
 
 volumes:
   postgres_data:

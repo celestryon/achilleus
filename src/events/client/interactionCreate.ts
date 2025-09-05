@@ -21,7 +21,7 @@ const event: Event = {
       }
 
       // Check owner only
-      if (command.ownerOnly && interaction.user.id !== process.env.BOT_OWNER_ID) {
+      if (command.ownerOnly && interaction.user.id !== process.env['BOT_OWNER_ID']) {
         await interaction.reply({
           content: '❌ This command is restricted to the bot owner.',
           ephemeral: true,
@@ -59,7 +59,7 @@ const event: Event = {
       // Check permissions
       if (command.permissions && interaction.guild && interaction.member) {
         const member = interaction.member as any;
-        const hasPermission = command.permissions.every(permission =>
+        const hasPermission = command.permissions.every((permission: string) =>
           member.permissions?.has(permission)
         );
 

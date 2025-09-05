@@ -1,15 +1,15 @@
 import { Client, Collection } from 'discord.js';
 import { PrismaClient } from '@prisma/client';
 import Redis from 'ioredis';
-import { DatabaseService } from './services/database';
-import { RedisService } from './services/redis';
 
 export interface AchilleusBot {
   client: Client;
   db: PrismaClient;
   redis?: Redis;
-  databaseService: DatabaseService;
-  redisService?: RedisService;
+  databaseService: any;
+  redisService?: any;
+  commandHandler?: any;
+  eventHandler?: any;
 }
 
 export interface Command {

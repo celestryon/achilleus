@@ -57,8 +57,8 @@ class AchilleusBot {
     });
 
     // Initialize Redis if URL is provided
-    if (process.env.REDIS_URL) {
-      this.redis = new Redis(process.env.REDIS_URL);
+    if (process.env['REDIS_URL']) {
+      this.redis = new Redis(process.env['REDIS_URL']);
     }
 
     // Initialize services
@@ -69,7 +69,7 @@ class AchilleusBot {
 
     // Initialize handlers
     this.eventHandler = new EventHandler(this);
-    this.commandHandler = new CommandHandler(this);
+    this.commandHandler = new CommandHandler();
   }
 
   public async start(): Promise<void> {
@@ -91,12 +91,12 @@ class AchilleusBot {
       await this.commandHandler.loadCommands();
 
       // Start dashboard if enabled
-      if (process.env.API_PORT && process.env.NODE_ENV !== 'production') {
+      if (process.env['API_PORT'] && process.env['NODE_ENV'] !== 'production') {
         await startDashboard(this);
       }
 
       // Login to Discord
-      await this.client.login(process.env.DISCORD_TOKEN);
+      await this.client.login(process.env['DISCORD_TOKEN']);
       logger.info('Bot logged in successfully');
 
     } catch (error) {

@@ -6,8 +6,8 @@ import { logger } from '../../utils/logger';
 
 export async function startDashboard(bot: AchilleusBot): Promise<void> {
   const app = express();
-  const port = process.env.API_PORT || 3000;
-  const host = process.env.API_HOST || 'localhost';
+  const port = parseInt(process.env['API_PORT'] || '3000', 10);
+  const host = process.env['API_HOST'] || 'localhost';
 
   // Security middleware
   app.use(helmet());
@@ -15,7 +15,7 @@ export async function startDashboard(bot: AchilleusBot): Promise<void> {
   app.use(express.json());
 
   // Health check endpoint
-  app.get('/health', (req, res) => {
+  app.get('/health', (_req, res) => {
     res.json({
       status: 'healthy',
       timestamp: new Date().toISOString(),
@@ -27,7 +27,7 @@ export async function startDashboard(bot: AchilleusBot): Promise<void> {
   });
 
   // Bot status endpoint
-  app.get('/api/bot/status', (req, res) => {
+  app.get('/api/bot/status', (_req, res) => {
     res.json({
       ready: bot.client.isReady(),
       guilds: bot.client.guilds.cache.size,
@@ -41,7 +41,7 @@ export async function startDashboard(bot: AchilleusBot): Promise<void> {
   });
 
   // Guild list endpoint (basic info only)
-  app.get('/api/guilds', (req, res) => {
+  app.get('/api/guilds', (_req, res) => {
     const guilds = bot.client.guilds.cache.map(guild => ({
       id: guild.id,
       name: guild.name,
@@ -53,9 +53,10 @@ export async function startDashboard(bot: AchilleusBot): Promise<void> {
   });
 
   // Metrics endpoint (if Redis is available)
-  app.get('/api/metrics', async (req, res) => {
+  app.get('/api/metrics', async (_req, res) => {
     if (!bot.redisService) {
-      return res.status(503).json({ error: 'Metrics service not available' });
+      res.status(503).json({ error: 'Metrics service not available' });
+      return;
     }
 
     try {
@@ -74,12 +75,12 @@ export async function startDashboard(bot: AchilleusBot): Promise<void> {
   });
 
   // 404 handler
-  app.use('*', (req, res) => {
+  app.use('*', (_req, res) => {
     res.status(404).json({ error: 'Endpoint not found' });
   });
 
   // Error handler
-  app.use((err: any, req: any, res: any, next: any) => {
+  app.use((err: any, _req: any, res: any) => {
     logger.error('Dashboard API error:', err);
     res.status(500).json({ error: 'Internal server error' });
   });

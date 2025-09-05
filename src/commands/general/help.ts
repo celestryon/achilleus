@@ -1,4 +1,4 @@
-import { EmbedBuilder, SlashCommandBuilder } from 'discord.js';
+import { EmbedBuilder } from 'discord.js';
 import { AchilleusBot, Command, CommandCategory } from '../../types';
 
 const command: Command = {
@@ -59,7 +59,7 @@ const command: Command = {
 
       // Group commands by category
       const categories = new Map<string, Command[]>();
-      commands.forEach(cmd => {
+      commands.forEach((cmd: Command) => {
         const category = cmd.category;
         if (!categories.has(category)) {
           categories.set(category, []);

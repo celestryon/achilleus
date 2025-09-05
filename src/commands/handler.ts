@@ -1,13 +1,13 @@
 import { Collection, REST, Routes, SlashCommandBuilder } from 'discord.js';
 import { readdirSync } from 'fs';
 import { join } from 'path';
-import { AchilleusBot, Command, CommandCollection } from '../types';
+import { Command, CommandCollection } from '../types';
 import { logger } from '../utils/logger';
 
 export class CommandHandler {
   public commands: CommandCollection = new Collection();
 
-  constructor(private bot: AchilleusBot) {}
+  constructor() {}
 
   async loadCommands(): Promise<void> {
     const commandsPath = join(__dirname, '../commands');
@@ -29,7 +29,7 @@ export class CommandHandler {
             const commandModule = await import(filePath);
             const command: Command = commandModule.default || commandModule;
 
-            if (command.name && command.execute) {
+            if (command.name && typeof command.execute === 'function') {
               this.commands.set(command.name, command);
               logger.info(`Loaded command: ${command.name}`);
             }
@@ -49,8 +49,8 @@ export class CommandHandler {
   }
 
   private async registerSlashCommands(): Promise<void> {
-    const token = process.env.DISCORD_TOKEN;
-    const clientId = process.env.DISCORD_CLIENT_ID;
+    const token = process.env['DISCORD_TOKEN'];
+    const clientId = process.env['DISCORD_CLIENT_ID'];
 
     if (!token || !clientId) {
       logger.warn('Missing Discord token or client ID, skipping slash command registration');
@@ -119,10 +119,10 @@ export class CommandHandler {
       });
 
       // Register commands globally or for a specific guild
-      if (process.env.DISCORD_GUILD_ID && process.env.NODE_ENV === 'development') {
+      if (process.env['DISCORD_GUILD_ID'] && process.env['NODE_ENV'] === 'development') {
         // Guild-specific registration for development
         await rest.put(
-          Routes.applicationGuildCommands(clientId, process.env.DISCORD_GUILD_ID),
+          Routes.applicationGuildCommands(clientId, process.env['DISCORD_GUILD_ID']),
           { body: commandData }
         );
         logger.info('Registered slash commands for development guild');

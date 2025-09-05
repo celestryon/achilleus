@@ -1,17 +1,16 @@
 FROM node:20-alpine AS base
 WORKDIR /app
-RUN npm install -g pnpm
 
 # Dependencies
 FROM base AS deps
-COPY package.json pnpm-lock.yaml* ./
-RUN pnpm install --frozen-lockfile
+COPY package.json package-lock.json* ./
+RUN npm ci --frozen-lockfile
 
 # Build
 FROM base AS builder
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-RUN pnpm build
+RUN npm run build
 
 # Production
 FROM base AS runner
@@ -29,4 +28,4 @@ EXPOSE 3000
 
 ENV NODE_ENV=production
 
-CMD ["pnpm", "start"]
+CMD ["npm", "start"]

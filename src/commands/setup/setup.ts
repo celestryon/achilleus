@@ -1,5 +1,6 @@
-import { EmbedBuilder, PermissionFlagsBits } from 'discord.js';
+import { EmbedBuilder } from 'discord.js';
 import { AchilleusBot, Command, CommandCategory } from '../../types';
+import { logger } from '../../utils/logger';
 
 const command: Command = {
   name: 'setup',
@@ -57,7 +58,7 @@ const command: Command = {
 
       switch (action) {
         case 'init':
-          await handleInit(interaction, bot, guildConfig);
+          await handleInit(interaction);
           break;
         case 'logging':
           await handleLogging(interaction, bot, guildConfig);
@@ -66,11 +67,11 @@ const command: Command = {
           await handleModeration(interaction, bot, guildConfig);
           break;
         case 'show':
-          await handleShow(interaction, bot, guildConfig);
+          await handleShow(interaction, guildConfig);
           break;
       }
     } catch (error) {
-      console.error('Setup command error:', error);
+      logger.error('Setup command error:', error);
       await interaction.editReply({
         content: '❌ An error occurred during setup. Please try again.',
       });
@@ -78,7 +79,7 @@ const command: Command = {
   },
 };
 
-async function handleInit(interaction: any, bot: AchilleusBot, config: any): Promise<void> {
+async function handleInit(interaction: any): Promise<void> {
   const embed = new EmbedBuilder()
     .setTitle('🚀 Achilleus Setup - Initialization')
     .setDescription('Welcome to Achilleus! Let\'s get you set up.')
@@ -195,7 +196,7 @@ async function handleModeration(interaction: any, bot: AchilleusBot, config: any
   await interaction.editReply({ embeds: [embed] });
 }
 
-async function handleShow(interaction: any, bot: AchilleusBot, config: any): Promise<void> {
+async function handleShow(interaction: any, config: any): Promise<void> {
   const embed = new EmbedBuilder()
     .setTitle('⚙️ Current Configuration')
     .setColor(0x3498db)
