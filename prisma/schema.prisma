@@ -1,0 +1,346 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Guild Configuration
+model Guild {
+  id                    String              @id
+  name                  String?
+  prefix                String              @default("!")
+  language              String              @default("en")
+  timezone              String              @default("UTC")
+  logChannelId          String?
+  modLogChannelId       String?
+  memberLogChannelId    String?
+  messageLogChannelId   String?
+  automodEnabled        Boolean             @default(true)
+  antiRaidEnabled       Boolean             @default(true)
+  verificationEnabled   Boolean             @default(false)
+  muteRoleId            String?
+  moderatorRoleIds      String[]            @default([])
+  adminRoleIds          String[]            @default([])
+  premiumEnabled        Boolean             @default(false)
+  premiumTier           Int                 @default(0)
+  retentionDays         Int                 @default(90)
+  transcriptRetentionDays Int               @default(365)
+  createdAt             DateTime            @default(now())
+  updatedAt             DateTime            @updatedAt
+
+  // Relations
+  members               Member[]
+  cases                 Case[]
+  warnings              Warning[]
+  tickets               Ticket[]
+  automodRules          AutomodRule[]
+  reactionRoles         ReactionRole[]
+  reminders             Reminder[]
+  suggestions           Suggestion[]
+  starboard             Starboard[]
+  giveaways             Giveaway[]
+  socialNotifications   SocialNotification[]
+
+  @@map("guilds")
+}
+
+// Member data per guild
+model Member {
+  id        String   @id @default(cuid())
+  userId    String
+  guildId   String
+  joinedAt  DateTime @default(now())
+  nickname  String?
+  roles     String[] @default([])
+  warnings  Int      @default(0)
+  notes     String?
+  optedOut  Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  guild     Guild      @relation(fields: [guildId], references: [id], onDelete: Cascade)
+  cases     Case[]
+  warningRecords Warning[]
+  reminders Reminder[]
+
+  @@unique([userId, guildId])
+  @@map("members")
+}
+
+// Moderation Cases
+model Case {
+  id           String      @id @default(cuid())
+  caseNumber   Int
+  guildId      String
+  userId       String
+  moderatorId  String
+  type         CaseType
+  reason       String?
+  duration     Int?        // in minutes for timeouts
+  evidence     String[]    @default([])
+  active       Boolean     @default(true)
+  expiresAt    DateTime?
+  appealable   Boolean     @default(true)
+  appealed     Boolean     @default(false)
+  appealReason String?
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+
+  // Relations
+  guild        Guild       @relation(fields: [guildId], references: [id], onDelete: Cascade)
+  member       Member      @relation(fields: [userId, guildId], references: [userId, guildId], onDelete: Cascade)
+
+  @@unique([guildId, caseNumber])
+  @@map("cases")
+}
+
+enum CaseType {
+  WARNING
+  TIMEOUT
+  KICK
+  BAN
+  SOFTBAN
+  UNBAN
+  UNTIMEOUT
+}
+
+// Warning system
+model Warning {
+  id          String   @id @default(cuid())
+  guildId     String
+  userId      String
+  moderatorId String
+  reason      String
+  points      Int      @default(1)
+  expiresAt   DateTime?
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+
+  // Relations
+  guild       Guild    @relation(fields: [guildId], references: [id], onDelete: Cascade)
+  member      Member   @relation(fields: [userId, guildId], references: [userId, guildId], onDelete: Cascade)
+
+  @@map("warnings")
+}
+
+// Ticket System
+model Ticket {
+  id               String        @id @default(cuid())
+  guildId          String
+  channelId        String        @unique
+  userId           String
+  assignedTo       String?
+  category         String        @default("general")
+  subject          String?
+  status           TicketStatus  @default(OPEN)
+  priority         Priority      @default(NORMAL)
+  tags             String[]      @default([])
+  transcript       String?       // HTML transcript
+  slaEnabled       Boolean       @default(false)
+  slaDeadline      DateTime?
+  escalated        Boolean       @default(false)
+  escalatedAt      DateTime?
+  closedAt         DateTime?
+  closedBy         String?
+  closeReason      String?
+  createdAt        DateTime      @default(now())
+  updatedAt        DateTime      @updatedAt
+
+  // Relations
+  guild            Guild         @relation(fields: [guildId], references: [id], onDelete: Cascade)
+
+  @@map("tickets")
+}
+
+enum TicketStatus {
+  OPEN
+  PENDING
+  RESOLVED
+  CLOSED
+}
+
+enum Priority {
+  LOW
+  NORMAL
+  HIGH
+  URGENT
+}
+
+// Automod Rules
+model AutomodRule {
+  id           String           @id @default(cuid())
+  guildId      String
+  name         String
+  type         AutomodType
+  enabled      Boolean          @default(true)
+  triggers     Json             // Rule-specific configuration
+  actions      Json             // Actions to take when triggered
+  exemptRoles  String[]         @default([])
+  exemptChannels String[]       @default([])
+  exemptUsers  String[]         @default([])
+  escalation   Json?            // Escalation rules
+  createdAt    DateTime         @default(now())
+  updatedAt    DateTime         @updatedAt
+
+  // Relations
+  guild        Guild            @relation(fields: [guildId], references: [id], onDelete: Cascade)
+
+  @@map("automod_rules")
+}
+
+enum AutomodType {
+  SPAM
+  LINKS
+  INVITES
+  MENTIONS
+  CAPS
+  EMOJIS
+  DUPLICATES
+  REGEX
+  PHRASES
+  RAID_PROTECTION
+}
+
+// Reaction Roles
+model ReactionRole {
+  id          String   @id @default(cuid())
+  guildId     String
+  messageId   String
+  channelId   String
+  emoji       String
+  roleId      String
+  description String?
+  createdAt   DateTime @default(now())
+
+  // Relations
+  guild       Guild    @relation(fields: [guildId], references: [id], onDelete: Cascade)
+
+  @@unique([messageId, emoji])
+  @@map("reaction_roles")
+}
+
+// Reminders
+model Reminder {
+  id          String   @id @default(cuid())
+  guildId     String
+  userId      String
+  channelId   String
+  content     String
+  remindAt    DateTime
+  recurring   Boolean  @default(false)
+  interval    Int?     // in minutes if recurring
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+
+  // Relations
+  guild       Guild    @relation(fields: [guildId], references: [id], onDelete: Cascade)
+  member      Member   @relation(fields: [userId, guildId], references: [userId, guildId], onDelete: Cascade)
+
+  @@map("reminders")
+}
+
+// Suggestions
+model Suggestion {
+  id           String           @id @default(cuid())
+  guildId      String
+  channelId    String
+  messageId    String           @unique
+  userId       String
+  content      String
+  status       SuggestionStatus @default(PENDING)
+  upvotes      Int              @default(0)
+  downvotes    Int              @default(0)
+  staffResponse String?
+  implementedAt DateTime?
+  createdAt    DateTime         @default(now())
+  updatedAt    DateTime         @updatedAt
+
+  // Relations
+  guild        Guild            @relation(fields: [guildId], references: [id], onDelete: Cascade)
+
+  @@map("suggestions")
+}
+
+enum SuggestionStatus {
+  PENDING
+  APPROVED
+  DENIED
+  IMPLEMENTED
+}
+
+// Starboard
+model Starboard {
+  id           String   @id @default(cuid())
+  guildId      String
+  channelId    String
+  messageId    String   @unique
+  originalChannelId String
+  originalMessageId String @unique
+  authorId     String
+  content      String?
+  stars        Int      @default(0)
+  starredAt    DateTime @default(now())
+
+  // Relations
+  guild        Guild    @relation(fields: [guildId], references: [id], onDelete: Cascade)
+
+  @@map("starboard")
+}
+
+// Giveaways
+model Giveaway {
+  id           String         @id @default(cuid())
+  guildId      String
+  channelId    String
+  messageId    String         @unique
+  title        String
+  description  String?
+  prize        String
+  winners      Int            @default(1)
+  endsAt       DateTime
+  ended        Boolean        @default(false)
+  winnerIds    String[]       @default([])
+  participants String[]       @default([])
+  requirements Json?          // Entry requirements
+  createdBy    String
+  createdAt    DateTime       @default(now())
+
+  // Relations
+  guild        Guild          @relation(fields: [guildId], references: [id], onDelete: Cascade)
+
+  @@map("giveaways")
+}
+
+// Social Notifications
+model SocialNotification {
+  id           String               @id @default(cuid())
+  guildId      String
+  platform     SocialPlatform
+  channelId    String
+  username     String
+  customMessage String?
+  lastCheck    DateTime?
+  lastPostId   String?
+  enabled      Boolean              @default(true)
+  createdAt    DateTime             @default(now())
+  updatedAt    DateTime             @updatedAt
+
+  // Relations
+  guild        Guild                @relation(fields: [guildId], references: [id], onDelete: Cascade)
+
+  @@unique([guildId, platform, username])
+  @@map("social_notifications")
+}
+
+enum SocialPlatform {
+  YOUTUBE
+  TWITCH
+  TIKTOK
+}
