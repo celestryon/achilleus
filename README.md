@@ -4,13 +4,14 @@ BanglaLeaks is a secure, anonymous whistleblowing platform designed to help indi
 
 ## Features
 
-- 🔒 **Security-First Design**: No tracking, no analytics, no cookies
-- 🌐 **Tor Integration**: Clear instructions for anonymous submission via Tor Browser
-- 🌍 **Bilingual Support**: Full content in English and Bengali (বাংলা)
-- 📱 **Responsive Design**: Works on all devices
-- 🎨 **Dark Theme**: Privacy-conscious aesthetic with green/teal accents
-- ♿ **Accessible**: WCAG compliant design
-- 🛡️ **Security Headers**: CSP, X-Frame-Options, and more
+- **Security-First Design**: No tracking, no analytics, no cookies
+- **Tor Integration**: Clear instructions for anonymous submission via Tor Browser
+- **Bilingual Support**: Full content in English and Bengali (বাংলা)
+- **Responsive Design**: Works on all devices
+- **Professional Design**: WikiLeaks-inspired clean aesthetic with white background
+- **Automated Status Checking**: Client-side portal status indicator
+- **Accessible**: WCAG compliant design
+- **Security Headers**: CSP, X-Frame-Options, and more
 
 ## Website Structure
 
@@ -75,8 +76,8 @@ BanglaLeaks is a secure, anonymous whistleblowing platform designed to help indi
    ```
 
 2. **Update the .onion address** (IMPORTANT!)
-   - Open `submit.html`
-   - Find the line: `<code id="onion-url">your-domain-here.onion/submit</code>`
+   - Open `config.js`
+   - Find the line: `onionUrl: 'your-domain-here.onion/submit',`
    - Replace `your-domain-here.onion/submit` with your actual .onion address
 
 3. **Test locally**
@@ -189,17 +190,17 @@ server {
 
 #### Update the .onion Address
 
-The most important customization is updating the .onion address in `submit.html`:
+The most important customization is updating the .onion address in `config.js`:
 
-```html
-<!-- Find this section in submit.html -->
-<div class="onion-address">
-  <code id="onion-url">your-domain-here.onion/submit</code>
-  <button class="copy-btn" onclick="copyOnion()">📋 Copy Address</button>
-</div>
+```javascript
+// Open config.js and update this line
+const CONFIG = {
+  onionUrl: 'your-domain-here.onion/submit',  // Replace with your actual .onion URL
+  // ... rest of configuration
+};
 ```
 
-Replace `your-domain-here.onion/submit` with your actual Tor hidden service address.
+Replace `your-domain-here.onion/submit` with your actual Tor hidden service address. The configuration will automatically populate the .onion URL throughout the site.
 
 #### Branding
 
@@ -207,8 +208,8 @@ Replace `your-domain-here.onion/submit` with your actual Tor hidden service addr
 - **Colors**: Modify CSS variables in `css/style.css`:
   ```css
   :root {
-    --accent-primary: #00d9a3;    /* Change primary color */
-    --accent-secondary: #00b386;  /* Change secondary color */
+    --accent-primary: #2c5aa0;    /* Change primary color */
+    --accent-secondary: #1e4080;  /* Change secondary color */
   }
   ```
 - **Footer**: Update copyright year and organization info in each HTML file
