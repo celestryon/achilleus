@@ -4,13 +4,14 @@ BanglaLeaks is a secure, anonymous whistleblowing platform designed to help indi
 
 ## Features
 
-- 🔒 **Security-First Design**: No tracking, no analytics, no cookies
-- 🌐 **Tor Integration**: Clear instructions for anonymous submission via Tor Browser
-- 🌍 **Bilingual Support**: Full content in English and Bengali (বাংলা)
-- 📱 **Responsive Design**: Works on all devices
-- 🎨 **Dark Theme**: Privacy-conscious aesthetic with green/teal accents
-- ♿ **Accessible**: WCAG compliant design
-- 🛡️ **Security Headers**: CSP, X-Frame-Options, and more
+- **Security-First Design**: No tracking, no analytics, no cookies
+- **Tor Integration**: Clear instructions for anonymous submission via Tor Browser
+- **Bilingual Support**: Full content in English and Bengali (বাংলা)
+- **Responsive Design**: Works on all devices
+- **Professional Design**: WikiLeaks-inspired clean aesthetic with white background
+- **Automated Status Checking**: Client-side portal status indicator
+- **Accessible**: WCAG compliant design
+- **Security Headers**: CSP, X-Frame-Options, and more
 
 ## Website Structure
 
@@ -75,8 +76,8 @@ BanglaLeaks is a secure, anonymous whistleblowing platform designed to help indi
    ```
 
 2. **Update the .onion address** (IMPORTANT!)
-   - Open `submit.html`
-   - Find the line: `<code id="onion-url">your-domain-here.onion/submit</code>`
+   - Open `config.js`
+   - Find the line: `onionUrl: 'your-domain-here.onion/submit',`
    - Replace `your-domain-here.onion/submit` with your actual .onion address
 
 3. **Test locally**
