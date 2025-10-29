@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit a Leak - BanglaLeaks</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔒 BanglaLeaks</h1>
+            <p class="tagline">Secure Anonymous Whistleblowing Platform</p>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="submit.html" class="active">Submit a Leak</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="submit-section">
+                <h2>Submit Your Leak Securely</h2>
+                
+                <!-- Status Indicator -->
+                <div class="status-indicator">
+                    <span class="status-badge" id="onion-status">
+                        <span class="status-dot"></span>
+                        <span class="status-text">CHECKING...</span>
+                    </span>
+                    <span class="status-message" id="status-message">
+                        Checking submission portal status...
+                    </span>
+                    <button class="refresh-btn" id="refresh-status" title="Refresh status">
+                        <span class="refresh-icon">↻</span>
+                    </button>
+                </div>
+
+                <div class="last-checked" id="last-checked">
+                    Last checked: Never
+                </div>
+
+                <!-- Onion URL -->
+                <div class="onion-url-section">
+                    <h3>🧅 Tor Submission Portal</h3>
+                    <div class="onion-url-box">
+                        <code id="onion-url">your-domain-here.onion/submit</code>
+                        <button class="copy-btn" id="copy-url" title="Copy URL">
+                            📋 Copy
+                        </button>
+                    </div>
+                    <p class="info-text">
+                        <strong>Important:</strong> You must access this URL using <a href="https://www.torproject.org" target="_blank">Tor Browser</a> for complete anonymity.
+                    </p>
+                </div>
+
+                <!-- Bilingual Instructions -->
+                <div class="instructions">
+                    <div class="lang-section">
+                        <h3>📝 Instructions (English)</h3>
+                        <ul>
+                            <li>Ensure the status indicator shows <strong class="status-online">ONLINE</strong> before submitting.</li>
+                            <li>Only access the .onion URL through Tor Browser.</li>
+                            <li>Never submit from your workplace or personal devices.</li>
+                            <li>Do not include personally identifiable information.</li>
+                            <li>Use a secure location with no surveillance cameras.</li>
+                        </ul>
+                    </div>
+
+                    <div class="lang-section">
+                        <h3>📝 নির্দেশাবলী (বাংলা)</h3>
+                        <ul>
+                            <li>জমা দেওয়ার আগে নিশ্চিত করুন যে স্ট্যাটাস <strong class="status-online">অনলাইন</strong> দেখাচ্ছে।</li>
+                            <li>শুধুমাত্র টর ব্রাউজারের মাধ্যমে .onion URL অ্যাক্সেস করুন।</li>
+                            <li>আপনার কর্মস্থল বা ব্যক্তিগত ডিভাইস থেকে কখনও জমা দেবেন না।</li>
+                            <li>ব্যক্তিগতভাবে শনাক্তযোগ্য তথ্য অন্তর্ভুক্ত করবেন না।</li>
+                            <li>কোনো নজরদারি ক্যামেরা নেই এমন নিরাপদ স্থান ব্যবহার করুন।</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Security Tips -->
+                <div class="security-tips">
+                    <h3>🛡️ Security Best Practices</h3>
+                    <div class="tips-grid">
+                        <div class="tip">
+                            <strong>Use Tor Browser</strong>
+                            <p>Always use Tor Browser to access the .onion portal. Regular browsers won't work.</p>
+                        </div>
+                        <div class="tip">
+                            <strong>Public WiFi</strong>
+                            <p>Use public WiFi from a location not connected to your identity.</p>
+                        </div>
+                        <div class="tip">
+                            <strong>No Metadata</strong>
+                            <p>Remove metadata from documents before uploading (use MAT2 or similar tools).</p>
+                        </div>
+                        <div class="tip">
+                            <strong>Secure Communication</strong>
+                            <p>Don't tell anyone about your submission, even trusted friends.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 BanglaLeaks. All rights reserved. | <a href="#privacy">Privacy Policy</a> | <a href="#security">Security</a></p>
+        </footer>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/status-checker.js"></script>
+</body>
+</html>
