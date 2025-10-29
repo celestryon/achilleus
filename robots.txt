@@ -1,0 +1,20 @@
+# BanglaLeaks robots.txt
+# We prevent search engines from indexing sensitive pages
+
+User-agent: *
+# Disallow submission-related pages from being indexed
+Disallow: /submit.html
+# Allow homepage, about, security guide, and FAQ for public discovery
+Allow: /index.html
+Allow: /about.html
+Allow: /security.html
+Allow: /faq.html
+# Disallow any future admin or internal pages
+Disallow: /admin/
+Disallow: /.git/
+
+# Crawl-delay to reduce server load
+Crawl-delay: 10
+
+# Sitemap (if created in the future)
+# Sitemap: https://yourdomain.com/sitemap.xml
