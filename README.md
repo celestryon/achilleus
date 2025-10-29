@@ -190,17 +190,17 @@ server {
 
 #### Update the .onion Address
 
-The most important customization is updating the .onion address in `submit.html`:
+The most important customization is updating the .onion address in `config.js`:
 
-```html
-<!-- Find this section in submit.html -->
-<div class="onion-address">
-  <code id="onion-url">your-domain-here.onion/submit</code>
-  <button class="copy-btn" onclick="copyOnion()">📋 Copy Address</button>
-</div>
+```javascript
+// Open config.js and update this line
+const CONFIG = {
+  onionUrl: 'your-domain-here.onion/submit',  // Replace with your actual .onion URL
+  // ... rest of configuration
+};
 ```
 
-Replace `your-domain-here.onion/submit` with your actual Tor hidden service address.
+Replace `your-domain-here.onion/submit` with your actual Tor hidden service address. The configuration will automatically populate the .onion URL throughout the site.
 
 #### Branding
 
@@ -208,8 +208,8 @@ Replace `your-domain-here.onion/submit` with your actual Tor hidden service addr
 - **Colors**: Modify CSS variables in `css/style.css`:
   ```css
   :root {
-    --accent-primary: #00d9a3;    /* Change primary color */
-    --accent-secondary: #00b386;  /* Change secondary color */
+    --accent-primary: #2c5aa0;    /* Change primary color */
+    --accent-secondary: #1e4080;  /* Change secondary color */
   }
   ```
 - **Footer**: Update copyright year and organization info in each HTML file
