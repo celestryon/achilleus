@@ -14,9 +14,9 @@ const CONFIG = {
     /**
      * Your .onion submission portal URL
      * Replace this with your actual .onion domain
-     * Example: 'abc123xyz456.onion/submit'
+     * Example: 'http://abc123xyz456.onion/submit'
      */
-    onionUrl: 'your-domain-here.onion/submit',
+    onionUrl: 'http://your-domain-here.onion/submit',
     
     /**
      * API endpoint for status checking
@@ -41,6 +41,14 @@ const CONFIG = {
      * - Static fallback: 60000-300000 (1-5 minutes)
      */
     checkInterval: 30000,
+    
+    /**
+     * Request timeout in milliseconds
+     * Default: 15000 (15 seconds)
+     * 
+     * Maximum time to wait for status API response before treating as offline
+     */
+    requestTimeout: 15000,
     
     /**
      * Enable/disable automatic status checking
@@ -92,45 +100,50 @@ const CONFIG = {
 /*
 // Example 1: Backend Proxy Checker with Node.js
 const CONFIG = {
-    onionUrl: 'abc123xyz456.onion/submit',
+    onionUrl: 'http://abc123xyz456.onion/submit',
     statusApiEndpoint: '/api/status',
     checkInterval: 30000,
+    requestTimeout: 15000,
     enableStatusCheck: true,
     currentLanguage: 'en'
 };
 
 // Example 2: Backend Proxy Checker with External API
 const CONFIG = {
-    onionUrl: 'abc123xyz456.onion/submit',
+    onionUrl: 'http://abc123xyz456.onion/submit',
     statusApiEndpoint: 'https://api.yoursite.com/api/status',
     checkInterval: 30000,
+    requestTimeout: 15000,
     enableStatusCheck: true,
     currentLanguage: 'en'
 };
 
 // Example 3: Static Fallback with GitHub Pages
 const CONFIG = {
-    onionUrl: 'abc123xyz456.onion/submit',
+    onionUrl: 'http://abc123xyz456.onion/submit',
     statusApiEndpoint: '/status.json',
     checkInterval: 120000, // 2 minutes (since it's static)
+    requestTimeout: 15000,
     enableStatusCheck: true,
     currentLanguage: 'en'
 };
 
 // Example 4: Bengali Interface
 const CONFIG = {
-    onionUrl: 'abc123xyz456.onion/submit',
+    onionUrl: 'http://abc123xyz456.onion/submit',
     statusApiEndpoint: '/api/status',
     checkInterval: 30000,
+    requestTimeout: 15000,
     enableStatusCheck: true,
     currentLanguage: 'bn'
 };
 
 // Example 5: Disabled Status Checking (Development)
 const CONFIG = {
-    onionUrl: 'abc123xyz456.onion/submit',
+    onionUrl: 'http://abc123xyz456.onion/submit',
     statusApiEndpoint: '/api/status',
     checkInterval: 30000,
+    requestTimeout: 15000,
     enableStatusCheck: false, // Disabled for development
     currentLanguage: 'en'
 };

@@ -85,7 +85,8 @@ class OnionStatusChecker {
         
         try {
             const controller = new AbortController();
-            const timeoutId = setTimeout(() => controller.abort(), 15000); // 15 second timeout
+            const timeout = CONFIG.requestTimeout || 15000;
+            const timeoutId = setTimeout(() => controller.abort(), timeout);
             
             const response = await fetch(this.apiEndpoint, {
                 method: 'GET',
@@ -197,6 +198,16 @@ class OnionStatusChecker {
     }
     
     /**
+     * Get the current status from indicator classes
+     * @returns {string} Current status ('online', 'offline', or 'checking')
+     */
+    getCurrentStatus() {
+        if (this.statusIndicator.classList.contains('online')) return 'online';
+        if (this.statusIndicator.classList.contains('offline')) return 'offline';
+        return 'checking';
+    }
+    
+    /**
      * Change the language of status messages
      * @param {string} lang - 'en' or 'bn'
      */
@@ -206,8 +217,7 @@ class OnionStatusChecker {
             this.messages = CONFIG.messages[lang];
             
             // Refresh current status message
-            const currentStatus = this.statusIndicator.classList.contains('online') ? 'online' :
-                                 this.statusIndicator.classList.contains('offline') ? 'offline' : 'checking';
+            const currentStatus = this.getCurrentStatus();
             
             if (this.statusMessage) {
                 this.statusMessage.textContent = this.messages[currentStatus];

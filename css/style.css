@@ -278,6 +278,17 @@ p {
     }
 }
 
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .status-indicator.checking .status-dot {
+        animation: none;
+    }
+    
+    .refresh-btn:active .refresh-icon {
+        animation: none;
+    }
+}
+
 .last-checked {
     text-align: right;
     color: var(--text-secondary);
