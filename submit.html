@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="Securely submit leaks to BanglaLeaks using Tor Browser">
+  <title>Submit a Leak - BanglaLeaks</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html" class="logo">
+        <span class="logo-icon">🔒</span>
+        <span lang="en">BanglaLeaks</span>
+        <span lang="bn" class="bn hidden">বাংলালিকস</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" lang="en">Home</a><a href="index.html" lang="bn" class="bn hidden">হোম</a></li>
+        <li><a href="submit.html" lang="en">Submit Leak</a><a href="submit.html" lang="bn" class="bn hidden">তথ্য জমা দিন</a></li>
+        <li><a href="about.html" lang="en">About</a><a href="about.html" lang="bn" class="bn hidden">আমাদের সম্পর্কে</a></li>
+        <li><a href="security.html" lang="en">Security Guide</a><a href="security.html" lang="bn" class="bn hidden">নিরাপত্তা গাইড</a></li>
+        <li><a href="faq.html" lang="en">FAQ</a><a href="faq.html" lang="bn" class="bn hidden">প্রশ্নোত্তর</a></li>
+      </ul>
+      <button id="lang-toggle" class="lang-toggle">বাংলা</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Important Warning -->
+    <section class="danger-box" style="margin-bottom: 2rem;">
+      <strong lang="en">⚠️ CRITICAL SECURITY WARNING</strong>
+      <strong lang="bn" class="bn hidden">⚠️ গুরুত্বপূর্ণ নিরাপত্তা সতর্কতা</strong>
+      <p lang="en">
+        <strong>DO NOT submit information through this website using a regular browser!</strong> 
+        This page is for information only. To maintain your anonymity, you MUST use Tor Browser 
+        and access our secure .onion submission portal. Regular browsers will expose your IP address 
+        and identity.
+      </p>
+      <p lang="bn" class="bn hidden">
+        <strong>সাধারণ ব্রাউজার ব্যবহার করে এই ওয়েবসাইটের মাধ্যমে তথ্য জমা দেবেন না!</strong> 
+        এই পৃষ্ঠাটি শুধুমাত্র তথ্যের জন্য। আপনার বেনামী বজায় রাখতে, আপনাকে অবশ্যই টর ব্রাউজার 
+        ব্যবহার করতে হবে এবং আমাদের নিরাপদ .onion জমা পোর্টাল অ্যাক্সেস করতে হবে। সাধারণ ব্রাউজার 
+        আপনার আইপি ঠিকানা এবং পরিচয় প্রকাশ করবে।
+      </p>
+    </section>
+
+    <!-- Overview -->
+    <section class="content-section">
+      <h2 lang="en">How to Submit Securely</h2>
+      <h2 lang="bn" class="bn hidden">কিভাবে নিরাপদে জমা দেবেন</h2>
+      
+      <p lang="en">
+        To submit information to BanglaLeaks safely and anonymously, you need to follow these two steps:
+      </p>
+      <p lang="bn" class="bn hidden">
+        বাংলালিকসে নিরাপদে এবং বেনামে তথ্য জমা দিতে, আপনাকে এই দুটি ধাপ অনুসরণ করতে হবে:
+      </p>
+      
+      <ol lang="en" style="font-size: 1.1rem; margin: 1.5rem 0;">
+        <li><strong>Download and install Tor Browser</strong> (instructions below)</li>
+        <li><strong>Use Tor Browser to visit our secure .onion submission portal</strong> (address below)</li>
+      </ol>
+      <ol lang="bn" class="bn hidden" style="font-size: 1.1rem; margin: 1.5rem 0;">
+        <li><strong>টর ব্রাউজার ডাউনলোড এবং ইনস্টল করুন</strong> (নীচে নির্দেশাবলী)</li>
+        <li><strong>আমাদের নিরাপদ .onion জমা পোর্টাল দেখতে টর ব্রাউজার ব্যবহার করুন</strong> (নীচে ঠিকানা)</li>
+      </ol>
+    </section>
+
+    <!-- What is Tor Browser -->
+    <section class="content-section">
+      <h2 lang="en">🌐 What is Tor Browser?</h2>
+      <h2 lang="bn" class="bn hidden">🌐 টর ব্রাউজার কি?</h2>
+      
+      <p lang="en">
+        <strong>Tor Browser</strong> is a free, secure web browser that protects your anonymity online. 
+        It works by routing your internet connection through a network of volunteer-operated servers, 
+        making it extremely difficult for anyone to trace your online activity back to you.
+      </p>
+      <p lang="bn" class="bn hidden">
+        <strong>টর ব্রাউজার</strong> একটি বিনামূল্যে, নিরাপদ ওয়েব ব্রাউজার যা অনলাইনে আপনার বেনামী রক্ষা করে। 
+        এটি স্বেচ্ছাসেবক-পরিচালিত সার্ভারের একটি নেটওয়ার্কের মাধ্যমে আপনার ইন্টারনেট সংযোগ রাউটিং করে কাজ করে, 
+        যা কাউকে আপনার অনলাইন কার্যকলাপ আপনার কাছে ফিরে ট্র্যাক করা অত্যন্ত কঠিন করে তোলে।
+      </p>
+      
+      <div class="info-box">
+        <strong lang="en">Why Tor Browser is Essential for Whistleblowers:</strong>
+        <strong lang="bn" class="bn hidden">কেন টর ব্রাউজার হুইসেলব্লোয়ারদের জন্য অপরিহার্য:</strong>
+        <ul lang="en">
+          <li><strong>Hides Your IP Address:</strong> Your real location and identity remain hidden</li>
+          <li><strong>Prevents Tracking:</strong> No one can monitor which websites you visit</li>
+          <li><strong>Encrypts Your Connection:</strong> Your data is protected from interception</li>
+          <li><strong>Accesses .onion Sites:</strong> Only Tor Browser can access secure .onion websites</li>
+        </ul>
+        <ul lang="bn" class="bn hidden">
+          <li><strong>আপনার আইপি ঠিকানা লুকায়:</strong> আপনার প্রকৃত অবস্থান এবং পরিচয় লুকানো থাকে</li>
+          <li><strong>ট্র্যাকিং প্রতিরোধ করে:</strong> কেউ আপনি কোন ওয়েবসাইট পরিদর্শন করেন তা নিরীক্ষণ করতে পারে না</li>
+          <li><strong>আপনার সংযোগ এনক্রিপ্ট করে:</strong> আপনার ডেটা আটকানো থেকে সুরক্ষিত</li>
+          <li><strong>.onion সাইটগুলি অ্যাক্সেস করে:</strong> শুধুমাত্র টর ব্রাউজার নিরাপদ .onion ওয়েবসাইট অ্যাক্সেস করতে পারে</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Download Tor Browser -->
+    <section class="tor-instructions">
+      <h2 lang="en">📥 Step 1: Download Tor Browser</h2>
+      <h2 lang="bn" class="bn hidden">📥 ধাপ ১: টর ব্রাউজার ডাউনলোড করুন</h2>
+      
+      <p lang="en">
+        <strong>Official Download Link:</strong> Visit the official Tor Project website to download 
+        Tor Browser for your device:
+      </p>
+      <p lang="bn" class="bn hidden">
+        <strong>অফিসিয়াল ডাউনলোড লিঙ্ক:</strong> আপনার ডিভাইসের জন্য টর ব্রাউজার ডাউনলোড করতে 
+        অফিসিয়াল টর প্রজেক্ট ওয়েবসাইট পরিদর্শন করুন:
+      </p>
+      
+      <div style="text-align: center; margin: 2rem 0;">
+        <a href="https://www.torproject.org/download/" class="cta-button">
+          🌐 www.torproject.org/download/
+        </a>
+      </div>
+      
+      <div class="warning-box">
+        <strong lang="en">⚠️ Important: Only download from the official Tor Project website!</strong>
+        <strong lang="bn" class="bn hidden">⚠️ গুরুত্বপূর্ণ: শুধুমাত্র অফিসিয়াল টর প্রজেক্ট ওয়েবসাইট থেকে ডাউনলোড করুন!</strong>
+        <p lang="en">
+          Do not download Tor Browser from any other source. Fake versions may contain malware or 
+          tracking software that compromises your security.
+        </p>
+        <p lang="bn" class="bn hidden">
+          অন্য কোন উৎস থেকে টর ব্রাউজার ডাউনলোড করবেন না। জাল সংস্করণে ম্যালওয়্যার বা 
+          ট্র্যাকিং সফটওয়্যার থাকতে পারে যা আপনার নিরাপত্তা ক্ষতিগ্রস্ত করে।
+        </p>
+      </div>
+
+      <h3 lang="en">Download Links by Platform:</h3>
+      <h3 lang="bn" class="bn hidden">প্ল্যাটফর্ম অনুসারে ডাউনলোড লিঙ্ক:</h3>
+      
+      <div class="download-links">
+        <a href="https://www.torproject.org/download/" class="download-btn">
+          <span>🪟</span>
+          <span lang="en">Windows</span>
+          <span lang="bn" class="bn hidden">উইন্ডোজ</span>
+        </a>
+        <a href="https://www.torproject.org/download/" class="download-btn">
+          <span>🍎</span>
+          <span lang="en">macOS</span>
+          <span lang="bn" class="bn hidden">ম্যাকওএস</span>
+        </a>
+        <a href="https://www.torproject.org/download/" class="download-btn">
+          <span>🐧</span>
+          <span>Linux</span>
+        </a>
+        <a href="https://www.torproject.org/download/" class="download-btn">
+          <span>📱</span>
+          <span>Android</span>
+        </a>
+      </div>
+
+      <h3 lang="en">Installation Steps:</h3>
+      <h3 lang="bn" class="bn hidden">ইনস্টলেশন ধাপ:</h3>
+      
+      <ol class="step-list" lang="en">
+        <li>
+          <strong>Visit the official website:</strong> Go to 
+          <a href="https://www.torproject.org/download/">www.torproject.org/download/</a>
+        </li>
+        <li>
+          <strong>Choose your platform:</strong> Select the version for your operating system 
+          (Windows, macOS, Linux, or Android)
+        </li>
+        <li>
+          <strong>Download the installer:</strong> Click the download button for your platform
+        </li>
+        <li>
+          <strong>Verify the download (recommended):</strong> Follow the verification instructions 
+          on the Tor Project website to ensure your download is authentic
+        </li>
+        <li>
+          <strong>Install Tor Browser:</strong> Run the installer and follow the on-screen instructions
+        </li>
+        <li>
+          <strong>Launch Tor Browser:</strong> Open the application and click "Connect" to connect 
+          to the Tor network
+        </li>
+        <li>
+          <strong>Wait for connection:</strong> It may take a minute to establish a secure connection
+        </li>
+      </ol>
+
+      <ol class="step-list" lang="bn" class="bn hidden">
+        <li>
+          <strong>অফিসিয়াল ওয়েবসাইট পরিদর্শন করুন:</strong> 
+          <a href="https://www.torproject.org/download/">www.torproject.org/download/</a> এ যান
+        </li>
+        <li>
+          <strong>আপনার প্ল্যাটফর্ম চয়ন করুন:</strong> আপনার অপারেটিং সিস্টেমের জন্য সংস্করণ নির্বাচন করুন 
+          (উইন্ডোজ, ম্যাকওএস, লিনাক্স বা অ্যান্ড্রয়েড)
+        </li>
+        <li>
+          <strong>ইনস্টলার ডাউনলোড করুন:</strong> আপনার প্ল্যাটফর্মের জন্য ডাউনলোড বোতাম ক্লিক করুন
+        </li>
+        <li>
+          <strong>ডাউনলোড যাচাই করুন (সুপারিশকৃত):</strong> আপনার ডাউনলোড খাঁটি তা নিশ্চিত করতে 
+          টর প্রজেক্ট ওয়েবসাইটে যাচাইকরণ নির্দেশাবলী অনুসরণ করুন
+        </li>
+        <li>
+          <strong>টর ব্রাউজার ইনস্টল করুন:</strong> ইনস্টলার চালান এবং অন-স্ক্রীন নির্দেশাবলী অনুসরণ করুন
+        </li>
+        <li>
+          <strong>টর ব্রাউজার চালু করুন:</strong> অ্যাপ্লিকেশন খুলুন এবং টর নেটওয়ার্কে সংযোগ করতে "Connect" ক্লিক করুন
+        </li>
+        <li>
+          <strong>সংযোগের জন্য অপেক্ষা করুন:</strong> একটি নিরাপদ সংযোগ স্থাপন করতে এক মিনিট সময় লাগতে পারে
+        </li>
+      </ol>
+    </section>
+
+    <!-- Onion Address Section -->
+    <section class="onion-box">
+      <h2 lang="en">🧅 Step 2: Visit Our Secure Submission Portal</h2>
+      <h2 lang="bn" class="bn hidden">🧅 ধাপ ২: আমাদের নিরাপদ জমা পোর্টাল পরিদর্শন করুন</h2>
+      
+      <p lang="en">
+        Once you have Tor Browser installed and running, use it to visit our secure submission portal 
+        at the following .onion address:
+      </p>
+      <p lang="bn" class="bn hidden">
+        একবার আপনার টর ব্রাউজার ইনস্টল এবং চলছে, নিম্নলিখিত .onion ঠিকানায় 
+        আমাদের নিরাপদ জমা পোর্টাল পরিদর্শন করতে এটি ব্যবহার করুন:
+      </p>
+      
+      <div class="onion-address">
+        <code id="onion-url">your-domain-here.onion/submit</code>
+        <button class="copy-btn" onclick="copyOnion()" lang="en">📋 Copy Address</button>
+        <button class="copy-btn" onclick="copyOnion()" lang="bn" class="bn hidden">📋 ঠিকানা কপি করুন</button>
+      </div>
+      
+      <div class="info-box" style="text-align: left;">
+        <strong lang="en">Instructions:</strong>
+        <strong lang="bn" class="bn hidden">নির্দেশাবলী:</strong>
+        <ol lang="en">
+          <li>Open Tor Browser (not your regular browser!)</li>
+          <li>Copy the .onion address above</li>
+          <li>Paste it into Tor Browser's address bar</li>
+          <li>Press Enter to visit the secure submission portal</li>
+          <li>Follow the instructions on that page to submit your leak</li>
+        </ol>
+        <ol lang="bn" class="bn hidden">
+          <li>টর ব্রাউজার খুলুন (আপনার নিয়মিত ব্রাউজার নয়!)</li>
+          <li>উপরের .onion ঠিকানা কপি করুন</li>
+          <li>এটি টর ব্রাউজারের ঠিকানা বারে পেস্ট করুন</li>
+          <li>নিরাপদ জমা পোর্টাল পরিদর্শন করতে এন্টার চাপুন</li>
+          <li>আপনার লিক জমা দিতে সেই পৃষ্ঠায় নির্দেশাবলী অনুসরণ করুন</li>
+        </ol>
+      </div>
+
+      <div class="warning-box" style="text-align: left;">
+        <strong lang="en">⚠️ Verify the Address Carefully!</strong>
+        <strong lang="bn" class="bn hidden">⚠️ ঠিকানা সাবধানে যাচাই করুন!</strong>
+        <p lang="en">
+          Before submitting any information, make sure the .onion address in your Tor Browser matches 
+          exactly with the address shown above. Phishing sites may try to impersonate us.
+        </p>
+        <p lang="bn" class="bn hidden">
+          কোনো তথ্য জমা দেওয়ার আগে, নিশ্চিত করুন যে আপনার টর ব্রাউজারে .onion ঠিকানা 
+          উপরে দেখানো ঠিকানার সাথে সম্পূর্ণভাবে মিলে। ফিশিং সাইট আমাদের ছদ্মবেশ করার চেষ্টা করতে পারে।
+        </p>
+      </div>
+    </section>
+
+    <!-- Security Tips -->
+    <section class="content-section">
+      <h2 lang="en">🔒 Essential Security Tips</h2>
+      <h2 lang="bn" class="bn hidden">🔒 অত্যাবশ্যক নিরাপত্তা টিপস</h2>
+      
+      <div class="danger-box">
+        <strong lang="en">NEVER DO THIS:</strong>
+        <strong lang="bn" class="bn hidden">এটি কখনও করবেন না:</strong>
+        <ul lang="en">
+          <li>❌ Don't use your regular browser (Chrome, Firefox, Safari, Edge) to submit</li>
+          <li>❌ Don't submit from your work or school network</li>
+          <li>❌ Don't include your name or identifying information in submissions</li>
+          <li>❌ Don't log into personal accounts while using Tor Browser</li>
+          <li>❌ Don't resize Tor Browser window (this can reveal your screen resolution)</li>
+        </ul>
+        <ul lang="bn" class="bn hidden">
+          <li>❌ জমা দিতে আপনার নিয়মিত ব্রাউজার (ক্রোম, ফায়ারফক্স, সাফারি, এজ) ব্যবহার করবেন না</li>
+          <li>❌ আপনার কাজ বা স্কুল নেটওয়ার্ক থেকে জমা দেবেন না</li>
+          <li>❌ জমাদানে আপনার নাম বা পরিচয়কারী তথ্য অন্তর্ভুক্ত করবেন না</li>
+          <li>❌ টর ব্রাউজার ব্যবহার করার সময় ব্যক্তিগত অ্যাকাউন্টে লগ ইন করবেন না</li>
+          <li>❌ টর ব্রাউজার উইন্ডো আকার পরিবর্তন করবেন না (এটি আপনার স্ক্রীন রেজোলিউশন প্রকাশ করতে পারে)</li>
+        </ul>
+      </div>
+
+      <div class="info-box">
+        <strong lang="en">✅ BEST PRACTICES:</strong>
+        <strong lang="bn" class="bn hidden">✅ সেরা অনুশীলন:</strong>
+        <ul lang="en">
+          <li>✔️ Use Tor Browser for ALL steps of the submission process</li>
+          <li>✔️ Submit from a public WiFi network (coffee shop, library) if possible</li>
+          <li>✔️ Remove all metadata from documents before uploading</li>
+          <li>✔️ Keep Tor Browser updated to the latest version</li>
+          <li>✔️ Read our <a href="security.html">complete security guide</a> before submitting</li>
+        </ul>
+        <ul lang="bn" class="bn hidden">
+          <li>✔️ জমা প্রক্রিয়ার সমস্ত ধাপের জন্য টর ব্রাউজার ব্যবহার করুন</li>
+          <li>✔️ সম্ভব হলে একটি পাবলিক ওয়াইফাই নেটওয়ার্ক (কফি শপ, লাইব্রেরি) থেকে জমা দিন</li>
+          <li>✔️ আপলোড করার আগে ডকুমেন্ট থেকে সমস্ত মেটাডেটা সরান</li>
+          <li>✔️ টর ব্রাউজার সর্বশেষ সংস্করণে আপডেট রাখুন</li>
+          <li>✔️ জমা দেওয়ার আগে আমাদের <a href="security.html">সম্পূর্ণ নিরাপত্তা গাইড</a> পড়ুন</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- What Happens Next -->
+    <section class="content-section">
+      <h2 lang="en">What Happens After You Submit?</h2>
+      <h2 lang="bn" class="bn hidden">জমা দেওয়ার পরে কি হয়?</h2>
+      
+      <ol lang="en">
+        <li>
+          <strong>Review:</strong> Our team will carefully review your submission to verify its 
+          authenticity and assess its public interest value.
+        </li>
+        <li>
+          <strong>Verification:</strong> We may cross-reference information and documents with 
+          other sources to confirm accuracy.
+        </li>
+        <li>
+          <strong>Redaction:</strong> We will remove any information that could identify you or 
+          put you at risk.
+        </li>
+        <li>
+          <strong>Publication:</strong> If verified and in the public interest, we will publish 
+          the information responsibly.
+        </li>
+        <li>
+          <strong>Communication:</strong> If you provide a secure contact method through our .onion 
+          portal, we may reach out with questions (optional).
+        </li>
+      </ol>
+
+      <ol lang="bn" class="bn hidden">
+        <li>
+          <strong>পর্যালোচনা:</strong> আমাদের টিম আপনার জমা সাবধানে পর্যালোচনা করবে এর 
+          সত্যতা যাচাই এবং এর জনস্বার্থ মূল্য মূল্যায়ন করতে।
+        </li>
+        <li>
+          <strong>যাচাইকরণ:</strong> আমরা নির্ভুলতা নিশ্চিত করতে অন্যান্য উৎসের সাথে 
+          তথ্য এবং ডকুমেন্ট ক্রস-রেফারেন্স করতে পারি।
+        </li>
+        <li>
+          <strong>সংশোধন:</strong> আমরা যে কোনো তথ্য সরিয়ে ফেলব যা আপনাকে শনাক্ত করতে পারে বা 
+          আপনাকে ঝুঁকিতে ফেলতে পারে।
+        </li>
+        <li>
+          <strong>প্রকাশনা:</strong> যাচাই করা এবং জনস্বার্থে হলে, আমরা দায়িত্বশীলভাবে 
+          তথ্য প্রকাশ করব।
+        </li>
+        <li>
+          <strong>যোগাযোগ:</strong> আপনি যদি আমাদের .onion পোর্টালের মাধ্যমে একটি নিরাপদ যোগাযোগ পদ্ধতি প্রদান করেন, 
+          আমরা প্রশ্ন সহ যোগাযোগ করতে পারি (ঐচ্ছিক)।
+        </li>
+      </ol>
+
+      <p lang="en">
+        <strong>Note:</strong> Not all submissions will be published. We prioritize information 
+        that serves the public interest and can be independently verified.
+      </p>
+      <p lang="bn" class="bn hidden">
+        <strong>নোট:</strong> সব জমা প্রকাশ করা হবে না। আমরা এমন তথ্যকে অগ্রাধিকার দিই 
+        যা জনস্বার্থে কাজ করে এবং স্বাধীনভাবে যাচাই করা যায়।
+      </p>
+    </section>
+
+    <!-- Need Help? -->
+    <section class="content-section" style="text-align: center; background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-secondary) 100%);">
+      <h2 lang="en">Need Help?</h2>
+      <h2 lang="bn" class="bn hidden">সাহায্য প্রয়োজন?</h2>
+      
+      <p lang="en">
+        If you have questions about the submission process or need additional security guidance:
+      </p>
+      <p lang="bn" class="bn hidden">
+        যদি জমা প্রক্রিয়া সম্পর্কে আপনার প্রশ্ন থাকে বা অতিরিক্ত নিরাপত্তা নির্দেশনা প্রয়োজন হয়:
+      </p>
+      
+      <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="security.html" class="cta-button secondary" lang="en">Read Security Guide</a>
+        <a href="security.html" class="cta-button secondary" lang="bn" class="bn hidden">নিরাপত্তা গাইড পড়ুন</a>
+        <a href="faq.html" class="cta-button secondary" lang="en">View FAQ</a>
+        <a href="faq.html" class="cta-button secondary" lang="bn" class="bn hidden">প্রশ্নোত্তর দেখুন</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p lang="en">
+      &copy; 2024 BanglaLeaks. Committed to transparency and accountability.
+    </p>
+    <p lang="bn" class="bn hidden">
+      &copy; ২০২৪ বাংলালিকস। স্বচ্ছতা এবং জবাবদিহিতার প্রতি প্রতিশ্রুতিবদ্ধ।
+    </p>
+    <p lang="en">
+      <a href="security.html">Security Guide</a> | <a href="faq.html">FAQ</a> | <a href="about.html">About</a>
+    </p>
+    <p lang="bn" class="bn hidden">
+      <a href="security.html">নিরাপত্তা গাইড</a> | <a href="faq.html">প্রশ্নোত্তর</a> | <a href="about.html">আমাদের সম্পর্কে</a>
+    </p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
