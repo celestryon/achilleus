@@ -48,8 +48,8 @@ body {
    Typography
    ======================================== */
 h1, h2, h3, h4, h5, h6, .logo {
-  font-family: 'Lora', 'Palatino', Georgia, serif;
-  font-weight: 600;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: normal;
   line-height: 1.3;
   color: var(--text-primary);
   margin-bottom: 1rem;
@@ -102,11 +102,6 @@ strong {
 .bn {
   font-family: 'Noto Sans Bengali', 'SolaimanLipi', sans-serif;
   line-height: 1.8;
-}
-
-/* Hidden class for language toggle */
-.hidden {
-  display: none !important;
 }
 
 /* ========================================
