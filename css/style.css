@@ -385,6 +385,36 @@ footer {
   margin-top: auto;
 }
 
+.social-links {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.social-links a {
+  color: var(--text-secondary);
+  transition: color 0.3s;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.social-links a:hover {
+  color: var(--accent-primary);
+}
+
+.social-links svg {
+  width: 24px;
+  height: 24px;
+}
+
+.placeholder-text {
+  text-align: center;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   nav {
