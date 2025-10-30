@@ -6,14 +6,12 @@ let currentLang = 'en';
 function toggleLanguage() {
   currentLang = currentLang === 'en' ? 'bn' : 'en';
   
-  // Hide all language elements
-  document.querySelectorAll('[lang="en"]').forEach(el => {
-    el.classList.toggle('hidden', currentLang !== 'en');
-  });
-  
-  document.querySelectorAll('[lang="bn"]').forEach(el => {
-    el.classList.toggle('hidden', currentLang !== 'bn');
-  });
+  // Toggle body class for language switching
+  if (currentLang === 'bn') {
+    document.body.classList.add('lang-bn');
+  } else {
+    document.body.classList.remove('lang-bn');
+  }
   
   // Update button text
   const langButton = document.getElementById('lang-toggle');
@@ -30,12 +28,9 @@ function initLanguage() {
   const savedLang = localStorage.getItem('preferredLanguage');
   if (savedLang && savedLang !== currentLang) {
     toggleLanguage();
-  } else {
-    // Initialize with English visible
-    document.querySelectorAll('[lang="bn"]').forEach(el => {
-      el.classList.add('hidden');
-    });
   }
+  // If no saved preference or saved is 'en', body doesn't have lang-bn class (default state)
+  // The inline CSS will handle hiding Bengali content by default
 }
 
 // Copy onion address to clipboard
