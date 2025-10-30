@@ -294,6 +294,82 @@ section p {
   background: #28a745;
 }
 
+/* Onion Status Box */
+.onion-status-box {
+  background: var(--bg-primary);
+  padding: 1.5rem;
+  border: 2px solid var(--border-color);
+  border-radius: 4px;
+  margin: 1.5rem 0;
+}
+
+.onion-status-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.onion-status-box .status-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #6c757d;
+  flex-shrink: 0;
+}
+
+.onion-status-box .status-dot.online {
+  background: #28a745;
+  animation: pulse 2s infinite;
+}
+
+.onion-status-box .status-dot.offline {
+  background: #dc3545;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.status-text {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+}
+
+.status-message {
+  margin: 0.5rem 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.status-update-note {
+  margin: 0.75rem 0 0 0;
+  font-size: 0.9rem;
+  color: #666;
+  font-style: italic;
+}
+
+/* Status Refresh Reminder */
+.status-refresh-reminder {
+  background: #e7f3ff;
+  border: 1px solid #b3d9ff;
+  padding: 1rem;
+  border-radius: 4px;
+  margin: 1rem 0;
+}
+
+.status-refresh-reminder p {
+  margin: 0;
+  color: #004085;
+  font-size: 0.95rem;
+}
+
 /* Step Guide */
 .step-guide {
   counter-reset: step;
