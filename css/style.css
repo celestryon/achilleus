@@ -54,6 +54,7 @@ h3 {
 }
 
 /* Header and Navigation */
+/* Header and Navigation */
 header {
   background: var(--bg-primary);
   border-bottom: 1px solid var(--border-color);
@@ -81,6 +82,7 @@ nav {
   color: var(--text-primary);
   text-decoration: none;
   white-space: nowrap;
+  line-height: 1.2;
 }
 
 .nav-links {
@@ -88,18 +90,35 @@ nav {
   list-style: none;
   gap: 2rem;
   flex-wrap: wrap;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
 }
 
 .nav-links a {
   color: var(--text-secondary);
   text-decoration: none;
-  transition: color 0.3s;
+  transition: all 0.3s;
   font-size: 1rem;
+  border-bottom: 2px solid transparent;
+  display: inline-block;
+  padding: 0;
 }
 
-.nav-links a:hover,
-.nav-links a.active {
+.nav-links a:hover {
   color: var(--accent-primary);
+  border-bottom-color: var(--accent-primary);
+}
+
+.nav-links a.active {
+  color: var(--text-primary);
+  border-bottom-color: var(--text-primary);
 }
 
 .lang-toggle {
@@ -112,6 +131,7 @@ nav {
   font-size: 1rem;
   transition: background 0.3s;
   white-space: nowrap;
+  line-height: 1.2;
 }
 
 .lang-toggle:hover {
