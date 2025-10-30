@@ -78,7 +78,7 @@ nav {
   font-family: 'Times New Roman', Times, serif;
   font-weight: bold;
   font-size: 1.8rem;
-  color: var(--accent-primary);
+  color: var(--text-primary);
   text-decoration: none;
   white-space: nowrap;
 }
@@ -178,7 +178,7 @@ section p {
 }
 
 .feature-card h3 {
-  color: var(--accent-primary);
+  color: var(--text-primary);
   margin-bottom: 1rem;
 }
 
@@ -331,7 +331,7 @@ section p {
 }
 
 .faq-item h3 {
-  color: var(--accent-primary);
+  color: var(--text-primary);
   margin-bottom: 0.5rem;
 }
 
