@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit a Leak - BanglaLeaks</title>
+  <meta name="description" content="Securely submit documents to BanglaLeaks">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Default: show English, hide Bengali */
+    [lang="bn"] { display: none !important; }
+    
+    /* When body has lang-bn class: hide English, show Bengali */
+    body.lang-bn [lang="en"] { display: none !important; }
+    body.lang-bn [lang="bn"] { display: block !important; }
+  </style>
+  
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html" class="logo">
+        <span lang="en">BanglaLeaks</span>
+        <span lang="bn" class="bn">বাংলালিকস</span>
+      </a>
+      <ul class="nav-links">
+        <li>
+          <a href="index.html" lang="en">Home</a>
+          <a href="index.html" lang="bn" class="bn">হোম</a>
+        </li>
+        <li>
+          <a href="submit.html" lang="en">Submit Leak</a>
+          <a href="submit.html" lang="bn" class="bn">তথ্য জমা দিন</a>
+        </li>
+        <li>
+          <a href="about.html" lang="en">About</a>
+          <a href="about.html" lang="bn" class="bn">আমাদের সম্পর্কে</a>
+        </li>
+        <li>
+          <a href="security.html" lang="en">Security</a>
+          <a href="security.html" lang="bn" class="bn">নিরাপত্তা</a>
+        </li>
+        <li>
+          <a href="faq.html" lang="en">FAQ</a>
+          <a href="faq.html" lang="bn" class="bn">প্রশ্নোত্তর</a>
+        </li>
+      </ul>
+      <button id="lang-toggle" class="lang-toggle">বাংলা</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1 lang="en">Submit a Leak</h1>
+      <h1 lang="bn" class="bn">তথ্য জমা দিন</h1>
+      
+      <p lang="en">Follow these steps to securely submit documents while protecting your identity.</p>
+      <p lang="bn" class="bn">আপনার পরিচয় রক্ষা করার সময় নিরাপদে নথি জমা দিতে এই পদক্ষেপগুলি অনুসরণ করুন।</p>
+    </section>
+
+    <section class="tor-download">
+      <h2 lang="en">Step 1: Download Tor Browser</h2>
+      <h2 lang="bn" class="bn">পদক্ষেপ ১: টর ব্রাউজার ডাউনলোড করুন</h2>
+      
+      <p lang="en">To submit securely, you must use Tor Browser. This free software protects your identity by hiding your IP address and location.</p>
+      <p lang="bn" class="bn">নিরাপদে জমা দিতে, আপনাকে অবশ্যই টর ব্রাউজার ব্যবহার করতে হবে। এই বিনামূল্যে সফ্টওয়্যার আপনার আইপি ঠিকানা এবং অবস্থান লুকিয়ে আপনার পরিচয় রক্ষা করে।</p>
+      
+      <p lang="en"><strong>Download Tor Browser:</strong> <a href="https://www.torproject.org/download/" target="_blank">https://www.torproject.org/download/</a></p>
+      <p lang="bn" class="bn"><strong>টর ব্রাউজার ডাউনলোড করুন:</strong> <a href="https://www.torproject.org/download/" target="_blank">https://www.torproject.org/download/</a></p>
+      
+      <p lang="en"><strong>Important:</strong> Only download Tor from the official website. Do not use VPNs or other browsers for submission.</p>
+      <p lang="bn" class="bn"><strong>গুরুত্বপূর্ণ:</strong> শুধুমাত্র অফিসিয়াল ওয়েবসাইট থেকে টর ডাউনলোড করুন। জমা দেওয়ার জন্য ভিপিএন বা অন্যান্য ব্রাউজার ব্যবহার করবেন না।</p>
+    </section>
+
+    <section>
+      <h2 lang="en">Step 2: Access Our Secure Submission System</h2>
+      <h2 lang="bn" class="bn">পদক্ষেপ ২: আমাদের নিরাপদ জমা সিস্টেম অ্যাক্সেস করুন</h2>
+      
+      <p lang="en">Once you have Tor Browser installed and running, copy the .onion address below and paste it into the Tor Browser address bar.</p>
+      <p lang="bn" class="bn">একবার আপনি টর ব্রাউজার ইনস্টল এবং চালু করলে, নিচের .onion ঠিকানা কপি করুন এবং টর ব্রাউজার ঠিকানা বারে পেস্ট করুন।</p>
+      
+      <div class="onion-display">
+        <h3 lang="en">BanglaLeaks SecureDrop Address</h3>
+        <h3 lang="bn" class="bn">বাংলালিকস SecureDrop ঠিকানা</h3>
+        
+        <div class="onion-url" id="onion-url">banglaleaksxxxxxxxxxxxxxxxxxxxxxxxxxx.onion</div>
+        
+        <button id="copy-btn" class="copy-btn" lang="en">Copy Address</button>
+        <button id="copy-btn" class="copy-btn" lang="bn" class="bn">ঠিকানা কপি করুন</button>
+        
+        <p lang="en" style="margin-top: 1rem; font-size: 0.9rem; color: #666;">This address only works in Tor Browser</p>
+        <p lang="bn" class="bn" style="margin-top: 1rem; font-size: 0.9rem; color: #666;">এই ঠিকানা শুধুমাত্র টর ব্রাউজারে কাজ করে</p>
+      </div>
+
+      <div class="status-indicator">
+        <div class="status-dot"></div>
+        <span lang="en">SecureDrop system is operational</span>
+        <span lang="bn" class="bn">SecureDrop সিস্টেম চালু আছে</span>
+      </div>
+    </section>
+
+    <section>
+      <h2 lang="en">Step-by-Step Submission Guide</h2>
+      <h2 lang="bn" class="bn">ধাপে ধাপে জমা গাইড</h2>
+      
+      <div class="step-guide">
+        <div class="step">
+          <h3 lang="en">Install Tor Browser</h3>
+          <h3 lang="bn" class="bn">টর ব্রাউজার ইনস্টল করুন</h3>
+          
+          <p lang="en">Download and install Tor Browser from the official Tor Project website. This is essential for maintaining your anonymity.</p>
+          <p lang="bn" class="bn">অফিসিয়াল টর প্রজেক্ট ওয়েবসাইট থেকে টর ব্রাউজার ডাউনলোড এবং ইনস্টল করুন। এটি আপনার গোপনীয়তা বজায় রাখার জন্য অপরিহার্য।</p>
+        </div>
+
+        <div class="step">
+          <h3 lang="en">Open Tor Browser</h3>
+          <h3 lang="bn" class="bn">টর ব্রাউজার খুলুন</h3>
+          
+          <p lang="en">Launch Tor Browser and wait for it to connect to the Tor network. This may take a minute or two.</p>
+          <p lang="bn" class="bn">টর ব্রাউজার চালু করুন এবং এটি টর নেটওয়ার্কের সাথে সংযুক্ত হওয়ার জন্য অপেক্ষা করুন। এতে এক বা দুই মিনিট সময় লাগতে পারে।</p>
+        </div>
+
+        <div class="step">
+          <h3 lang="en">Navigate to Our .onion Address</h3>
+          <h3 lang="bn" class="bn">আমাদের .onion ঠিকানায় নেভিগেট করুন</h3>
+          
+          <p lang="en">Copy the .onion address above and paste it into the Tor Browser address bar. Press Enter to visit our SecureDrop instance.</p>
+          <p lang="bn" class="bn">উপরের .onion ঠিকানা কপি করুন এবং টর ব্রাউজার ঠিকানা বারে পেস্ট করুন। আমাদের SecureDrop ইনস্ট্যান্স দেখতে এন্টার টিপুন।</p>
+        </div>
+
+        <div class="step">
+          <h3 lang="en">Get Your Codename</h3>
+          <h3 lang="bn" class="bn">আপনার কোডনেম পান</h3>
+          
+          <p lang="en">SecureDrop will generate a unique codename for you. Write this down on paper (not digitally) and keep it safe. You'll need it to check for replies from our team.</p>
+          <p lang="bn" class="bn">SecureDrop আপনার জন্য একটি অনন্য কোডনেম তৈরি করবে। এটি কাগজে লিখুন (ডিজিটালভাবে নয়) এবং নিরাপদে রাখুন। আমাদের টিম থেকে উত্তর চেক করতে আপনার এটির প্রয়োজন হবে।</p>
+        </div>
+
+        <div class="step">
+          <h3 lang="en">Upload Documents or Write a Message</h3>
+          <h3 lang="bn" class="bn">নথি আপলোড করুন বা একটি বার্তা লিখুন</h3>
+          
+          <p lang="en">Upload documents, photos, or videos. You can also write a message to provide context. The more detail you provide, the better we can investigate.</p>
+          <p lang="bn" class="bn">নথি, ফটো বা ভিডিও আপলোড করুন। আপনি প্রসঙ্গ প্রদান করতে একটি বার্তাও লিখতে পারেন। আপনি যত বেশি বিস্তারিত প্রদান করবেন, আমরা তত ভাল তদন্ত করতে পারব।</p>
+        </div>
+
+        <div class="step">
+          <h3 lang="en">Submit and Check Back</h3>
+          <h3 lang="bn" class="bn">জমা দিন এবং ফিরে চেক করুন</h3>
+          
+          <p lang="en">After submitting, use your codename to check for replies from our journalists. They may ask follow-up questions or request additional information.</p>
+          <p lang="bn" class="bn">জমা দেওয়ার পরে, আমাদের সাংবাদিকদের থেকে উত্তর চেক করতে আপনার কোডনেম ব্যবহার করুন। তারা ফলো-আপ প্রশ্ন জিজ্ঞাসা করতে পারে বা অতিরিক্ত তথ্যের অনুরোধ করতে পারে।</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="warning">
+      <h3 lang="en">⚠️ Important Security Warnings</h3>
+      <h3 lang="bn" class="bn">⚠️ গুরুত্বপূর্ণ নিরাপত্তা সতর্কতা</h3>
+      
+      <ul lang="en">
+        <li><strong>Do NOT</strong> access the .onion address from your regular browser</li>
+        <li><strong>Do NOT</strong> use your real name or contact information</li>
+        <li><strong>Do NOT</strong> submit from your workplace or a location that can be traced to you</li>
+        <li><strong>Do NOT</strong> tell anyone that you are submitting to BanglaLeaks</li>
+        <li><strong>Do NOT</strong> save your codename digitally (write it on paper)</li>
+        <li><strong>Do</strong> read our full <a href="security.html">Security Guide</a> before submitting</li>
+      </ul>
+      
+      <ul lang="bn" class="bn">
+        <li><strong>করবেন না</strong> আপনার সাধারণ ব্রাউজার থেকে .onion ঠিকানা অ্যাক্সেস করবেন না</li>
+        <li><strong>করবেন না</strong> আপনার আসল নাম বা যোগাযোগের তথ্য ব্যবহার করবেন না</li>
+        <li><strong>করবেন না</strong> আপনার কর্মস্থল বা এমন স্থান থেকে জমা দেবেন না যা আপনার কাছে খুঁজে পাওয়া যেতে পারে</li>
+        <li><strong>করবেন না</strong> কাউকে বলবেন না যে আপনি বাংলালিকসে জমা দিচ্ছেন</li>
+        <li><strong>করবেন না</strong> আপনার কোডনেম ডিজিটালভাবে সংরক্ষণ করবেন না (কাগজে লিখুন)</li>
+        <li><strong>করুন</strong> জমা দেওয়ার আগে আমাদের সম্পূর্ণ <a href="security.html">নিরাপত্তা গাইড</a> পড়ুন</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 lang="en">What Happens Next?</h2>
+      <h2 lang="bn" class="bn">পরবর্তী কী হবে?</h2>
+      
+      <p lang="en">After you submit, our team of experienced journalists will:</p>
+      <p lang="bn" class="bn">আপনি জমা দেওয়ার পরে, আমাদের অভিজ্ঞ সাংবাদিকদের দল:</p>
+      
+      <ol lang="en">
+        <li>Review your submission carefully</li>
+        <li>Verify the authenticity of the information</li>
+        <li>Conduct additional research and investigation</li>
+        <li>Contact you through SecureDrop if we need more information</li>
+        <li>Publish findings if the information serves the public interest</li>
+      </ol>
+      
+      <ol lang="bn" class="bn">
+        <li>আপনার জমা সাবধানে পর্যালোচনা করবে</li>
+        <li>তথ্যের সত্যতা যাচাই করবে</li>
+        <li>অতিরিক্ত গবেষণা এবং তদন্ত পরিচালনা করবে</li>
+        <li>আমাদের আরও তথ্যের প্রয়োজন হলে SecureDrop এর মাধ্যমে আপনার সাথে যোগাযোগ করবে</li>
+        <li>তথ্য জনস্বার্থে কাজ করলে ফলাফল প্রকাশ করবে</li>
+      </ol>
+      
+      <p lang="en">Your identity will be protected throughout this entire process. We never reveal our sources.</p>
+      <p lang="bn" class="bn">এই সম্পূর্ণ প্রক্রিয়া জুড়ে আপনার পরিচয় সুরক্ষিত থাকবে। আমরা কখনো আমাদের উৎস প্রকাশ করি না।</p>
+    </section>
+
+    <section>
+      <h2 lang="en">Need Help?</h2>
+      <h2 lang="bn" class="bn">সাহায্য প্রয়োজন?</h2>
+      
+      <p lang="en">If you have questions about the submission process, please visit our <a href="faq.html">FAQ page</a> or read our <a href="security.html">Security Guide</a>.</p>
+      <p lang="bn" class="bn">জমা প্রক্রিয়া সম্পর্কে আপনার প্রশ্ন থাকলে, দয়া করে আমাদের <a href="faq.html">FAQ পৃষ্ঠা</a> দেখুন বা আমাদের <a href="security.html">নিরাপত্তা গাইড</a> পড়ুন।</p>
+    </section>
+  </main>
+
+  <footer>
+    <p lang="en">&copy; 2024 BanglaLeaks. Committed to transparency and accountability.</p>
+    <p lang="bn" class="bn">&copy; ২০২৪ বাংলালিকস। স্বচ্ছতা এবং জবাবদিহিতার প্রতি প্রতিশ্রুতিবদ্ধ।</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

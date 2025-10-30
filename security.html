@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Security Guide - BanglaLeaks</title>
+  <meta name="description" content="Essential security guidelines for safe whistleblowing">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Default: show English, hide Bengali */
+    [lang="bn"] { display: none !important; }
+    
+    /* When body has lang-bn class: hide English, show Bengali */
+    body.lang-bn [lang="en"] { display: none !important; }
+    body.lang-bn [lang="bn"] { display: block !important; }
+  </style>
+  
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html" class="logo">
+        <span lang="en">BanglaLeaks</span>
+        <span lang="bn" class="bn">বাংলালিকস</span>
+      </a>
+      <ul class="nav-links">
+        <li>
+          <a href="index.html" lang="en">Home</a>
+          <a href="index.html" lang="bn" class="bn">হোম</a>
+        </li>
+        <li>
+          <a href="submit.html" lang="en">Submit Leak</a>
+          <a href="submit.html" lang="bn" class="bn">তথ্য জমা দিন</a>
+        </li>
+        <li>
+          <a href="about.html" lang="en">About</a>
+          <a href="about.html" lang="bn" class="bn">আমাদের সম্পর্কে</a>
+        </li>
+        <li>
+          <a href="security.html" lang="en">Security</a>
+          <a href="security.html" lang="bn" class="bn">নিরাপত্তা</a>
+        </li>
+        <li>
+          <a href="faq.html" lang="en">FAQ</a>
+          <a href="faq.html" lang="bn" class="bn">প্রশ্নোত্তর</a>
+        </li>
+      </ul>
+      <button id="lang-toggle" class="lang-toggle">বাংলা</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1 lang="en">Security Guide</h1>
+      <h1 lang="bn" class="bn">নিরাপত্তা গাইড</h1>
+      
+      <p lang="en">Essential information to protect yourself when submitting to BanglaLeaks.</p>
+      <p lang="bn" class="bn">বাংলালিকসে জমা দেওয়ার সময় নিজেকে রক্ষা করার জন্য প্রয়োজনীয় তথ্য।</p>
+    </section>
+
+    <section class="warning">
+      <h3 lang="en">⚠️ Read This Before Submitting</h3>
+      <h3 lang="bn" class="bn">⚠️ জমা দেওয়ার আগে এটি পড়ুন</h3>
+      
+      <p lang="en">Your safety is paramount. Following these security guidelines can mean the difference between safe whistleblowing and putting yourself at risk. Please read carefully.</p>
+      <p lang="bn" class="bn">আপনার নিরাপত্তা সর্বাধিক গুরুত্বপূর্ণ। এই নিরাপত্তা নির্দেশিকা অনুসরণ করা নিরাপদ হুইসেলব্লোয়িং এবং নিজেকে ঝুঁকিতে রাখার মধ্যে পার্থক্য বোঝাতে পারে। দয়া করে সাবধানে পড়ুন।</p>
+    </section>
+
+    <section>
+      <h2 lang="en">Using Tor Browser Properly</h2>
+      <h2 lang="bn" class="bn">টর ব্রাউজার সঠিকভাবে ব্যবহার করা</h2>
+      
+      <h3 lang="en">What is Tor?</h3>
+      <h3 lang="bn" class="bn">টর কী?</h3>
+      
+      <p lang="en">Tor (The Onion Router) is free software that protects your identity online by routing your internet traffic through multiple servers around the world. This makes it extremely difficult for anyone to track your online activity back to you.</p>
+      <p lang="bn" class="bn">টর (The Onion Router) একটি বিনামূল্যে সফ্টওয়্যার যা বিশ্বব্যাপী একাধিক সার্ভারের মাধ্যমে আপনার ইন্টারনেট ট্রাফিক রাউট করে অনলাইনে আপনার পরিচয় রক্ষা করে। এটি যে কেউ আপনার অনলাইন কার্যকলাপ আপনার কাছে ট্র্যাক করা অত্যন্ত কঠিন করে তোলে।</p>
+      
+      <h3 lang="en">How to Use Tor Safely</h3>
+      <h3 lang="bn" class="bn">টর নিরাপদে কীভাবে ব্যবহার করবেন</h3>
+      
+      <ul lang="en">
+        <li><strong>Download from Official Source:</strong> Only download Tor Browser from <a href="https://www.torproject.org" target="_blank">torproject.org</a>. Never download from third-party sites.</li>
+        <li><strong>Use Default Settings:</strong> Don't change Tor's security settings unless you know what you're doing. The default settings provide good protection.</li>
+        <li><strong>Don't Maximize Window:</strong> Don't maximize the Tor Browser window. This helps prevent fingerprinting based on your screen resolution.</li>
+        <li><strong>Don't Install Add-ons:</strong> Never install browser extensions or add-ons in Tor Browser. They can compromise your anonymity.</li>
+        <li><strong>HTTPS Only:</strong> Only visit HTTPS websites (or .onion sites). Our SecureDrop is a .onion site accessed only through Tor.</li>
+        <li><strong>Don't Sign In:</strong> Never sign into personal accounts (email, social media, etc.) while using Tor Browser.</li>
+      </ul>
+      
+      <ul lang="bn" class="bn">
+        <li><strong>অফিসিয়াল সোর্স থেকে ডাউনলোড করুন:</strong> শুধুমাত্র <a href="https://www.torproject.org" target="_blank">torproject.org</a> থেকে টর ব্রাউজার ডাউনলোড করুন। কখনো তৃতীয় পক্ষের সাইট থেকে ডাউনলোড করবেন না।</li>
+        <li><strong>ডিফল্ট সেটিংস ব্যবহার করুন:</strong> আপনি কী করছেন তা না জানলে টরের নিরাপত্তা সেটিংস পরিবর্তন করবেন না। ডিফল্ট সেটিংস ভাল সুরক্ষা প্রদান করে।</li>
+        <li><strong>উইন্ডো ম্যাক্সিমাইজ করবেন না:</strong> টর ব্রাউজার উইন্ডো ম্যাক্সিমাইজ করবেন না। এটি আপনার স্ক্রিন রেজোলিউশনের উপর ভিত্তি করে ফিঙ্গারপ্রিন্টিং প্রতিরোধ করতে সাহায্য করে।</li>
+        <li><strong>অ্যাড-অন ইনস্টল করবেন না:</strong> টর ব্রাউজারে কখনও ব্রাউজার এক্সটেনশন বা অ্যাড-অন ইনস্টল করবেন না। তারা আপনার গোপনীয়তা আপস করতে পারে।</li>
+        <li><strong>শুধুমাত্র HTTPS:</strong> শুধুমাত্র HTTPS ওয়েবসাইট (বা .onion সাইট) দেখুন। আমাদের SecureDrop একটি .onion সাইট যা শুধুমাত্র টরের মাধ্যমে অ্যাক্সেস করা হয়।</li>
+        <li><strong>সাইন ইন করবেন না:</strong> টর ব্রাউজার ব্যবহার করার সময় কখনও ব্যক্তিগত অ্যাকাউন্ট (ইমেল, সোশ্যাল মিডিয়া, ইত্যাদি) সাইন ইন করবেন না।</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 lang="en">What NOT to Do</h2>
+      <h2 lang="bn" class="bn">কী করবেন না</h2>
+      
+      <p lang="en">These actions can compromise your anonymity and put you at risk:</p>
+      <p lang="bn" class="bn">এই কাজগুলি আপনার গোপনীয়তা আপস করতে পারে এবং আপনাকে ঝুঁকিতে ফেলতে পারে:</p>
+      
+      <div class="warning">
+        <h3 lang="en">🚫 Never Do These Things</h3>
+        <h3 lang="bn" class="bn">🚫 কখনও এই কাজগুলি করবেন না</h3>
+        
+        <ul lang="en">
+          <li><strong>Don't use regular browsers:</strong> Never access our .onion address from Chrome, Firefox, Safari, or any browser other than Tor.</li>
+          <li><strong>Don't use VPNs with Tor:</strong> Using a VPN with Tor can actually reduce your security. Just use Tor alone.</li>
+          <li><strong>Don't submit from work:</strong> Never submit from your workplace computer or network. This can be traced back to you.</li>
+          <li><strong>Don't use your real name:</strong> Never include your real name, email address, phone number, or any identifying information in your submission.</li>
+          <li><strong>Don't take photos with your phone:</strong> Photos from smartphones contain metadata (EXIF data) that includes location, device info, and timestamps. This can identify you.</li>
+          <li><strong>Don't tell anyone:</strong> The more people who know you're submitting, the greater the risk. Keep it completely secret.</li>
+          <li><strong>Don't use the same computer:</strong> If possible, avoid using your personal or work computer. Consider using a public computer at a library or internet cafe.</li>
+          <li><strong>Don't save your codename digitally:</strong> Write your SecureDrop codename on paper, not in a digital file or note.</li>
+        </ul>
+        
+        <ul lang="bn" class="bn">
+          <li><strong>সাধারণ ব্রাউজার ব্যবহার করবেন না:</strong> Chrome, Firefox, Safari বা টর ছাড়া অন্য কোনো ব্রাউজার থেকে আমাদের .onion ঠিকানা অ্যাক্সেস করবেন না।</li>
+          <li><strong>টরের সাথে VPN ব্যবহার করবেন না:</strong> টরের সাথে VPN ব্যবহার করা আসলে আপনার নিরাপত্তা হ্রাস করতে পারে। শুধু টর একা ব্যবহার করুন।</li>
+          <li><strong>কাজ থেকে জমা দেবেন না:</strong> আপনার কর্মক্ষেত্রের কম্পিউটার বা নেটওয়ার্ক থেকে কখনও জমা দেবেন না। এটি আপনার কাছে খুঁজে পাওয়া যেতে পারে।</li>
+          <li><strong>আপনার আসল নাম ব্যবহার করবেন না:</strong> আপনার জমায় কখনও আপনার আসল নাম, ইমেল ঠিকানা, ফোন নম্বর বা কোনো সনাক্তকরণ তথ্য অন্তর্ভুক্ত করবেন না।</li>
+          <li><strong>আপনার ফোন দিয়ে ফটো তুলবেন না:</strong> স্মার্টফোন থেকে ফটো মেটাডেটা (EXIF ডেটা) ধারণ করে যা অবস্থান, ডিভাইস তথ্য এবং টাইমস্ট্যাম্প অন্তর্ভুক্ত করে। এটি আপনাকে সনাক্ত করতে পারে।</li>
+          <li><strong>কাউকে বলবেন না:</strong> আপনি জমা দিচ্ছেন তা যত বেশি লোক জানবে, ঝুঁকি তত বেশি। এটি সম্পূর্ণ গোপন রাখুন।</li>
+          <li><strong>একই কম্পিউটার ব্যবহার করবেন না:</strong> সম্ভব হলে, আপনার ব্যক্তিগত বা কাজের কম্পিউটার ব্যবহার করা এড়িয়ে চলুন। একটি লাইব্রেরি বা ইন্টারনেট ক্যাফেতে একটি পাবলিক কম্পিউটার ব্যবহার করার কথা বিবেচনা করুন।</li>
+          <li><strong>আপনার কোডনেম ডিজিটালভাবে সংরক্ষণ করবেন না:</strong> আপনার SecureDrop কোডনেম কাগজে লিখুন, ডিজিটাল ফাইল বা নোটে নয়।</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2 lang="en">Digital Security Best Practices</h2>
+      <h2 lang="bn" class="bn">ডিজিটাল নিরাপত্তা সর্বোত্তম অনুশীলন</h2>
+      
+      <h3 lang="en">Before Submitting</h3>
+      <h3 lang="bn" class="bn">জমা দেওয়ার আগে</h3>
+      
+      <ul lang="en">
+        <li><strong>Remove Metadata:</strong> If you're submitting documents, remove all metadata first. Many file types (PDFs, Word docs, photos) contain hidden information about who created them and when.</li>
+        <li><strong>Use Public WiFi:</strong> Consider using public WiFi from a location not associated with you (not near your home or workplace).</li>
+        <li><strong>Disable Location Services:</strong> Turn off GPS and location services on any devices you're using.</li>
+        <li><strong>Use a Fresh USB Drive:</strong> If transferring files, use a new USB drive that hasn't been used with your personal computer.</li>
+        <li><strong>Check for Tracking:</strong> Ensure you're not being followed physically or digitally when accessing submission systems.</li>
+      </ul>
+      
+      <ul lang="bn" class="bn">
+        <li><strong>মেটাডেটা সরান:</strong> আপনি যদি নথি জমা দিচ্ছেন তবে প্রথমে সমস্ত মেটাডেটা সরান। অনেক ফাইল ধরনের (PDFs, Word ডক্স, ফটো) এ লুকানো তথ্য থাকে যে কে তৈরি করেছে এবং কখন।</li>
+        <li><strong>পাবলিক WiFi ব্যবহার করুন:</strong> আপনার সাথে সম্পর্কিত নয় এমন একটি স্থান থেকে পাবলিক WiFi ব্যবহার করার কথা বিবেচনা করুন (আপনার বাড়ি বা কর্মক্ষেত্রের কাছে নয়)।</li>
+        <li><strong>লোকেশন সার্ভিস অক্ষম করুন:</strong> আপনি যে কোনো ডিভাইস ব্যবহার করছেন সেগুলিতে GPS এবং লোকেশন সার্ভিস বন্ধ করুন।</li>
+        <li><strong>একটি নতুন USB ড্রাইভ ব্যবহার করুন:</strong> ফাইল স্থানান্তর করার সময়, একটি নতুন USB ড্রাইভ ব্যবহার করুন যা আপনার ব্যক্তিগত কম্পিউটারের সাথে ব্যবহার করা হয়নি।</li>
+        <li><strong>ট্র্যাকিং চেক করুন:</strong> নিশ্চিত করুন যে আপনি জমা সিস্টেম অ্যাক্সেস করার সময় শারীরিকভাবে বা ডিজিটালভাবে অনুসরণ করা হচ্ছে না।</li>
+      </ul>
+      
+      <h3 lang="en">Document Handling</h3>
+      <h3 lang="bn" class="bn">নথি পরিচালনা</h3>
+      
+      <ul lang="en">
+        <li><strong>Scan, Don't Photograph:</strong> If submitting physical documents, scan them rather than photographing with your phone.</li>
+        <li><strong>Remove Printer Tracking Dots:</strong> Many printers add invisible tracking dots to printed pages. Be aware of this if printing documents.</li>
+        <li><strong>Sanitize PDFs:</strong> Use PDF sanitization tools to remove hidden metadata and comments.</li>
+        <li><strong>Check for Watermarks:</strong> Some organizations add invisible watermarks to sensitive documents to track leakers.</li>
+        <li><strong>Type, Don't Handwrite:</strong> Handwriting can be analyzed and identified. Type messages instead.</li>
+      </ul>
+      
+      <ul lang="bn" class="bn">
+        <li><strong>স্ক্যান করুন, ছবি তুলবেন না:</strong> যদি শারীরিক নথি জমা দেন তবে আপনার ফোন দিয়ে ছবি তোলার পরিবর্তে স্ক্যান করুন।</li>
+        <li><strong>প্রিন্টার ট্র্যাকিং ডট সরান:</strong> অনেক প্রিন্টার মুদ্রিত পৃষ্ঠায় অদৃশ্য ট্র্যাকিং ডট যোগ করে। নথি মুদ্রণ করলে এটি সম্পর্কে সচেতন থাকুন।</li>
+        <li><strong>PDF স্যানিটাইজ করুন:</strong> লুকানো মেটাডেটা এবং মন্তব্য সরাতে PDF স্যানিটাইজেশন টুল ব্যবহার করুন।</li>
+        <li><strong>ওয়াটারমার্ক চেক করুন:</strong> কিছু সংস্থা ফাঁসকারীদের ট্র্যাক করতে সংবেদনশীল নথিতে অদৃশ্য ওয়াটারমার্ক যোগ করে।</li>
+        <li><strong>টাইপ করুন, হাতে লিখবেন না:</strong> হাতের লেখা বিশ্লেষণ এবং সনাক্ত করা যেতে পারে। পরিবর্তে বার্তা টাইপ করুন।</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 lang="en">Physical Security</h2>
+      <h2 lang="bn" class="bn">শারীরিক নিরাপত্তা</h2>
+      
+      <p lang="en">Digital security is only part of the equation. Physical security is equally important:</p>
+      <p lang="bn" class="bn">ডিজিটাল নিরাপত্তা শুধুমাত্র সমীকরণের একটি অংশ। শারীরিক নিরাপত্তা সমানভাবে গুরুত্বপূর্ণ:</p>
+      
+      <ul lang="en">
+        <li><strong>Be Aware of Surveillance:</strong> Be conscious of security cameras when accessing submission systems or handling sensitive materials.</li>
+        <li><strong>Don't Access From Home:</strong> Your home internet connection can be monitored. Use public WiFi instead.</li>
+        <li><strong>Secure Physical Documents:</strong> If you have physical documents, store them securely and consider destroying your copies after submission.</li>
+        <li><strong>Watch for Followers:</strong> Be aware of whether you're being followed when going to submit information.</li>
+        <li><strong>Use Cash:</strong> If you need to purchase anything for your submission (USB drives, internet access), use cash to avoid creating a paper trail.</li>
+        <li><strong>Timing Matters:</strong> Don't submit immediately after an incident if you might be one of few people who knew about it. Wait for a reasonable period.</li>
+      </ul>
+      
+      <ul lang="bn" class="bn">
+        <li><strong>নজরদারি সম্পর্কে সচেতন থাকুন:</strong> জমা সিস্টেম অ্যাক্সেস বা সংবেদনশীল উপাদান পরিচালনা করার সময় নিরাপত্তা ক্যামেরা সম্পর্কে সচেতন থাকুন।</li>
+        <li><strong>বাড়ি থেকে অ্যাক্সেস করবেন না:</strong> আপনার বাড়ির ইন্টারনেট সংযোগ পর্যবেক্ষণ করা যেতে পারে। পরিবর্তে পাবলিক WiFi ব্যবহার করুন।</li>
+        <li><strong>শারীরিক নথি সুরক্ষিত করুন:</strong> আপনার যদি শারীরিক নথি থাকে তবে সেগুলি নিরাপদে সংরক্ষণ করুন এবং জমা দেওয়ার পরে আপনার কপি ধ্বংস করার কথা বিবেচনা করুন।</li>
+        <li><strong>অনুসরণকারীদের দেখুন:</strong> তথ্য জমা দিতে যাওয়ার সময় আপনি অনুসরণ করা হচ্ছে কিনা তা সম্পর্কে সচেতন থাকুন।</li>
+        <li><strong>নগদ ব্যবহার করুন:</strong> আপনার জমার জন্য কিছু ক্রয় করতে হলে (USB ড্রাইভ, ইন্টারনেট অ্যাক্সেস), কাগজের চিহ্ন তৈরি করা এড়াতে নগদ ব্যবহার করুন।</li>
+        <li><strong>সময় গুরুত্বপূর্ণ:</strong> একটি ঘটনা ঘটার পর অবিলম্বে জমা দেবেন না যদি আপনি এটি সম্পর্কে জানতেন এমন কয়েকজনের মধ্যে একজন হতে পারেন। একটি যুক্তিসঙ্গত সময়ের জন্য অপেক্ষা করুন।</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 lang="en">After Submitting</h2>
+      <h2 lang="bn" class="bn">জমা দেওয়ার পরে</h2>
+      
+      <ul lang="en">
+        <li><strong>Check Back Securely:</strong> Only check for responses through Tor Browser using your codename.</li>
+        <li><strong>Don't Change Behavior:</strong> Maintain your normal routine. Sudden changes in behavior can draw attention.</li>
+        <li><strong>Don't Discuss It:</strong> Never tell anyone you've submitted to BanglaLeaks, not even people you trust.</li>
+        <li><strong>Destroy Evidence:</strong> Securely delete any copies of submitted materials from your devices.</li>
+        <li><strong>Be Patient:</strong> Investigation takes time. Don't panic if you don't hear back immediately.</li>
+        <li><strong>Stay Calm:</strong> If questioned, remain calm and don't volunteer information.</li>
+      </ul>
+      
+      <ul lang="bn" class="bn">
+        <li><strong>নিরাপদে ফিরে চেক করুন:</strong> শুধুমাত্র আপনার কোডনেম ব্যবহার করে টর ব্রাউজারের মাধ্যমে প্রতিক্রিয়া চেক করুন।</li>
+        <li><strong>আচরণ পরিবর্তন করবেন না:</strong> আপনার স্বাভাবিক রুটিন বজায় রাখুন। আচরণে হঠাৎ পরিবর্তন মনোযোগ আকর্ষণ করতে পারে।</li>
+        <li><strong>এটি নিয়ে আলোচনা করবেন না:</strong> আপনি বিশ্বাস করেন এমন লোকদেরও নয়, কাউকে বলবেন না যে আপনি বাংলালিকসে জমা দিয়েছেন।</li>
+        <li><strong>প্রমাণ ধ্বংস করুন:</strong> আপনার ডিভাইস থেকে জমা দেওয়া উপাদানের কোনো কপি নিরাপদে মুছুন।</li>
+        <li><strong>ধৈর্য ধরুন:</strong> তদন্তে সময় লাগে। আপনি অবিলম্বে ফিরে না শুনলে আতঙ্কিত হবেন না।</li>
+        <li><strong>শান্ত থাকুন:</strong> যদি প্রশ্ন করা হয়, শান্ত থাকুন এবং তথ্য স্বেচ্ছায় দেবেন না।</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 lang="en">Additional Resources</h2>
+      <h2 lang="bn" class="bn">অতিরিক্ত সম্পদ</h2>
+      
+      <ul lang="en">
+        <li><strong>Tor Project:</strong> <a href="https://www.torproject.org" target="_blank">https://www.torproject.org</a> - Learn more about Tor and download the browser</li>
+        <li><strong>Electronic Frontier Foundation (EFF):</strong> <a href="https://ssd.eff.org" target="_blank">https://ssd.eff.org</a> - Surveillance Self-Defense guides</li>
+        <li><strong>SecureDrop:</strong> <a href="https://securedrop.org" target="_blank">https://securedrop.org</a> - Information about the technology we use</li>
+      </ul>
+      
+      <ul lang="bn" class="bn">
+        <li><strong>Tor Project:</strong> <a href="https://www.torproject.org" target="_blank">https://www.torproject.org</a> - টর সম্পর্কে আরও জানুন এবং ব্রাউজার ডাউনলোড করুন</li>
+        <li><strong>Electronic Frontier Foundation (EFF):</strong> <a href="https://ssd.eff.org" target="_blank">https://ssd.eff.org</a> - নজরদারি আত্মরক্ষা গাইড</li>
+        <li><strong>SecureDrop:</strong> <a href="https://securedrop.org" target="_blank">https://securedrop.org</a> - আমরা যে প্রযুক্তি ব্যবহার করি সে সম্পর্কে তথ্য</li>
+      </ul>
+    </section>
+
+    <section class="cta">
+      <h2 lang="en">Ready to Submit?</h2>
+      <h2 lang="bn" class="bn">জমা দিতে প্রস্তুত?</h2>
+      
+      <p lang="en">Now that you understand the security measures, you can proceed to submit your information safely.</p>
+      <p lang="bn" class="bn">এখন যেহেতু আপনি নিরাপত্তা ব্যবস্থা বুঝতে পেরেছেন, আপনি নিরাপদে আপনার তথ্য জমা দিতে এগিয়ে যেতে পারেন।</p>
+      
+      <a href="submit.html" class="cta-button" lang="en">Submit Securely</a>
+      <a href="submit.html" class="cta-button" lang="bn" class="bn">নিরাপদে জমা দিন</a>
+    </section>
+  </main>
+
+  <footer>
+    <p lang="en">&copy; 2024 BanglaLeaks. Committed to transparency and accountability.</p>
+    <p lang="bn" class="bn">&copy; ২০২৪ বাংলালিকস। স্বচ্ছতা এবং জবাবদিহিতার প্রতি প্রতিশ্রুতিবদ্ধ।</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
