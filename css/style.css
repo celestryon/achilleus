@@ -409,6 +409,12 @@ footer {
   height: 24px;
 }
 
+.placeholder-text {
+  text-align: center;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   nav {
