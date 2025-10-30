@@ -91,17 +91,25 @@
         
         <div class="onion-url" id="onion-url">banglaleaksxxxxxxxxxxxxxxxxxxxxxxxxxx.onion</div>
         
-        <button id="copy-btn" class="copy-btn" lang="en">Copy Address</button>
-        <button id="copy-btn" class="copy-btn" lang="bn" class="bn">ঠিকানা কপি করুন</button>
-        
         <p lang="en" style="margin-top: 1rem; font-size: 0.9rem; color: #666;">This address only works in Tor Browser</p>
         <p lang="bn" class="bn" style="margin-top: 1rem; font-size: 0.9rem; color: #666;">এই ঠিকানা শুধুমাত্র টর ব্রাউজারে কাজ করে</p>
       </div>
 
-      <div class="status-indicator">
-        <div class="status-dot"></div>
-        <span lang="en">SecureDrop system is operational</span>
-        <span lang="bn" class="bn">SecureDrop সিস্টেম চালু আছে</span>
+      <div class="onion-status-box" id="onion-status-box">
+        <div class="onion-status-header">
+          <div class="status-dot" id="status-dot"></div>
+          <span class="status-text" id="status-text" lang="en">CHECKING...</span>
+          <span class="status-text" id="status-text-bn" lang="bn" class="bn">চেক করা হচ্ছে...</span>
+        </div>
+        <p class="status-message" id="status-message" lang="en">Checking .onion site status...</p>
+        <p class="status-message" id="status-message-bn" lang="bn" class="bn">.onion সাইট স্ট্যাটাস চেক করা হচ্ছে...</p>
+        <p class="status-update-note" id="status-update-note" lang="en">Status updates every minute.</p>
+        <p class="status-update-note" id="status-update-note-bn" lang="bn" class="bn">প্রতি মিনিটে স্ট্যাটাস আপডেট হয়।</p>
+      </div>
+
+      <div class="status-refresh-reminder">
+        <p lang="en">If the .onion site status shows as online but appears offline when you access it, please refresh this page to get the latest status.</p>
+        <p lang="bn" class="bn">যদি .onion সাইটের স্ট্যাটাস অনলাইন দেখায় কিন্তু অ্যাক্সেস করার সময় অফলাইন মনে হয়, সর্বশেষ স্ট্যাটাস পেতে এই পৃষ্ঠাটি রিফ্রেশ করুন।</p>
       </div>
     </section>
 

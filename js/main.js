@@ -16,26 +16,52 @@ function toggleLanguage() {
   }
 }
 
-// Copy .onion URL to clipboard
-function copyOnion() {
-  const url = document.getElementById('onion-url').textContent;
-  navigator.clipboard.writeText(url).then(() => {
-    const btn = document.getElementById('copy-btn');
-    const originalText = btn.textContent;
-    
-    // Show feedback
-    if (document.body.classList.contains('lang-bn')) {
-      btn.textContent = 'কপি হয়েছে!';
-    } else {
-      btn.textContent = 'Copied!';
-    }
-    
-    setTimeout(() => {
-      btn.textContent = originalText;
-    }, 2000);
-  }).catch(err => {
-    console.error('Failed to copy:', err);
-  });
+// Check .onion status
+async function checkOnionStatus() {
+  try {
+    const response = await fetch('/status.json?t=' + Date.now());
+    const data = await response.json();
+    updateStatusDisplay(data.online);
+  } catch (error) {
+    console.error('Failed to fetch status:', error);
+    updateStatusDisplay(false);
+  }
+}
+
+// Update status display based on online/offline state
+function updateStatusDisplay(isOnline) {
+  const statusDot = document.getElementById('status-dot');
+  const statusText = document.getElementById('status-text');
+  const statusTextBn = document.getElementById('status-text-bn');
+  const statusMessage = document.getElementById('status-message');
+  const statusMessageBn = document.getElementById('status-message-bn');
+  const statusUpdateNote = document.getElementById('status-update-note');
+  const statusUpdateNoteBn = document.getElementById('status-update-note-bn');
+  
+  if (!statusDot) return;
+  
+  // Remove existing status classes
+  statusDot.classList.remove('online', 'offline');
+  
+  if (isOnline) {
+    // Online state
+    statusDot.classList.add('online');
+    statusText.textContent = '🟢 ONLINE';
+    statusTextBn.textContent = '🟢 অনলাইন';
+    statusMessage.textContent = 'Our .onion site is available. You can submit securely now.';
+    statusMessageBn.textContent = 'আমাদের .onion সাইট উপলব্ধ। আপনি এখন নিরাপদে জমা দিতে পারেন।';
+    statusUpdateNote.textContent = 'Status updates every minute. Refresh this page to see the latest status.';
+    statusUpdateNoteBn.textContent = 'প্রতি মিনিটে স্ট্যাটাস আপডেট হয়। সর্বশেষ স্ট্যাটাস দেখতে এই পৃষ্ঠাটি রিফ্রেশ করুন।';
+  } else {
+    // Offline state
+    statusDot.classList.add('offline');
+    statusText.textContent = '🔴 OFFLINE';
+    statusTextBn.textContent = '🔴 অফলাইন';
+    statusMessage.textContent = 'Our .onion site is temporarily unavailable. Please check back in an hour.';
+    statusMessageBn.textContent = 'আমাদের .onion সাইট সাময়িকভাবে অনুপলব্ধ। এক ঘন্টা পরে আবার চেক করুন।';
+    statusUpdateNote.textContent = 'Refresh this page in a minute to see if the site is back online.';
+    statusUpdateNoteBn.textContent = 'সাইট আবার অনলাইন কিনা দেখতে এক মিনিটের মধ্যে এই পৃষ্ঠাটি রিফ্রেশ করুন।';
+  }
 }
 
 // Initialize on page load
@@ -64,9 +90,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
   
-  // Attach copy button handler if exists
-  const copyBtn = document.getElementById('copy-btn');
-  if (copyBtn) {
-    copyBtn.addEventListener('click', copyOnion);
+  // Check onion status if we're on the submit page
+  const statusBox = document.getElementById('onion-status-box');
+  if (statusBox) {
+    checkOnionStatus();
+    // Update status every 60 seconds
+    setInterval(checkOnionStatus, 60000);
   }
 });
