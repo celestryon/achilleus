@@ -253,7 +253,7 @@ section p {
 }
 
 .onion-url {
-  font-family: 'Courier New', monospace;
+  font-family: 'Arial', 'Helvetica', sans-serif;
   font-size: 1.2rem;
   color: var(--accent-primary);
   word-break: break-all;
