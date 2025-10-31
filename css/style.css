@@ -256,7 +256,6 @@ section p {
   color: var(--accent-primary);
   word-break: break-all;
   margin: 1rem 0;
-  font-weight: bold;
 }
 
 /* Step Guide */
